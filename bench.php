@@ -29,12 +29,8 @@ $benchmark = $_GET['benchmark'];
     <div class="container-fluid">
       <div class="content">
         <ul class="breadcrumb">
-          <li>
-            <a href="./index.php">Benchmarks</a>
-          </li>
-          <li>
-            <a href="./index.php"><?=$benchmark?></a>
-          </li>
+          <li><a href="./index.php">Benchmarks</a> <span class="divider">/</span></li>
+          <li class="active"><?=$benchmark?></li>
         </ul>
         <div class="row-fluid">
           <div class="span1">

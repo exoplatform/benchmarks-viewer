@@ -28,9 +28,7 @@
     <div class="container-fluid">
       <div class="content">
         <ul class="breadcrumb">
-          <li>
-            <a href="#">Benchmarks</a>
-          </li>
+          <li class="active">Benchmarks</li>
         </ul>
         <div class="row-fluid">
           <div class="span1">
