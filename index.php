@@ -48,7 +48,7 @@
                       <th>Scenario</th>
                       <th>VUs</th>
                       <th>Nodes</th>
-											<th></th>
+											<th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -264,7 +264,7 @@
           ],
           // Create actions
           "fnRowCallback":function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-            $('td:eq(8)', nRow).html('<a class="btn btn-small" rel="tooltip" data-placement="right" title="view" href="./bench.php?benchmark=XXXX/"><i class="icon-info-sign"></i></a>');
+            $('td:eq(7)', nRow).html('<a class="btn btn-small" rel="tooltip" data-placement="right" title="view" href="./bench.php?benchmark=XXXX/"><i class="icon-info-sign"></i></a>');
             return nRow;
           },					
           // Boostrap customization
