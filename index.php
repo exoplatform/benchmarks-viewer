@@ -48,6 +48,7 @@
                       <th>Scenario</th>
                       <th>VUs</th>
                       <th>Nodes</th>
+											<th></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -90,7 +91,8 @@
                         <td><?=$matches[5]?></td>
                         <td><?=$matches[6]?></td>
                         <td><?=$matches[7]?></td>
-                        <td><?=$matches[8]?></td>                                        
+                        <td><?=$matches[8]?></td>     
+												<td></td>                                   
                       </tr>
                       <?php 
                     }
@@ -260,6 +262,11 @@
           "aaSorting":[
             [ 0, "desc" ]
           ],
+          // Create actions
+          "fnRowCallback":function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+            $('td:eq(8)', nRow).html('<a class="btn btn-small" rel="tooltip" data-placement="right" title="view" href="./bench.php?benchmark=XXXX/"><i class="icon-info-sign"></i></a>');
+            return nRow;
+          },					
           // Boostrap customization
           "sDom":"<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>"
         });
