@@ -71,7 +71,7 @@
                   }
 				          function displayDate ($date_as_string) {
 				            $date = DateTime::createFromFormat('Ymd-His', $date_as_string);
-				            return $date->format();
+				            return $date->format('Y/M/d - H:i:s T');
 				          }									
                   //print each file name
                   $benchmarks = getDirectoryList($_SERVER['BENCHMARKS_DIR']);
