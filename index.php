@@ -202,6 +202,7 @@
 		          $benchmarks = getDirectoryList($_SERVER['BENCHMARKS_DIR']);
 		          sort($benchmarks);
 							$benchmarks = array_reverse($benchmarks);
+							$unparsable_directories = array();
 		          foreach( $benchmarks as $benchmark) {
 								$matches = array();								
 								if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
@@ -221,16 +222,19 @@
 								}
 								else
 								{
-			            ?>
-			            <tr>
-			              <td colspan="8"><?=$benchmark?> cannot be parsed</td>
-			            </tr>
-			            <?php 									
+									$unparsable_directories[] = $benchmark;
 								}
 		          } 
 		          ?>
 		          </tbody>
 		        </table>						
+            <?php 
+						if(! empty($unparsable_directories)){
+		          foreach( $unparsable_directories as $directory) {
+								echo "Cannot parse : ".$directory."<br/>";
+						  }							
+						}
+            ?>
 					</div>
 				</div>				
       </div>
