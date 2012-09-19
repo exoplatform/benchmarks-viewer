@@ -22,7 +22,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 #breadcrumb {
-    margin-top: 12px;
+    padding-top: 40px;
 }
 
 /* must be same height as the footer */
