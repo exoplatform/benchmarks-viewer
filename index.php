@@ -249,7 +249,7 @@
             [ 0, "desc" ]
           ],
           // Boostrap customization
-          "sDom":"<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>"
+          "sDom":"<'row'<'span5'l><'span5'f>r>t<'row'<'span5'i><'span5'p>>"
         });
   });
 </script>	
