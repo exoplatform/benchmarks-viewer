@@ -52,7 +52,7 @@
 		            // open directory and walk through the filenames
 		            while ($file = readdir($handler)) {
 		              // if file isn't this directory or its parent, add it to the results
-		              if ($file != "." && $file != "..") {
+		              if (($file != ".") && ($file != "..") && (filetype($file) == "dir")) {
 		                $results[] = $file;
 		              }
 		            }
@@ -64,7 +64,7 @@
 		          //print each file name
 		          $benchmarks = getDirectoryList($_SERVER['BENCHMARKS_DIR']);
 		          sort($benchmarks);
-		          foreach( $benchmarks as $benchmark) {
+		          foreach( array_reverse($benchmarks) as $benchmark) {
 		            ?>
 		            <tr>
 		              <td><?=$benchmark?></td>
