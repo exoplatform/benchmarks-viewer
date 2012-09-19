@@ -230,9 +230,17 @@
 		        </table>						
             <?php 
 						if(! empty($unparsable_directories)){
+							?>
+							<div class="alert alert-block">
+							  <button type="button" class="close" data-dismiss="alert">×</button>
+							  <h4>Warning!</h4>
+							<?php
 		          foreach( $unparsable_directories as $directory) {
 								echo "Cannot parse : ".$directory."<br/>";
 						  }							
+							?>
+						</div>							
+							<?php
 						}
             ?>
 					</div>
