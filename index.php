@@ -5,8 +5,8 @@
   <title>Benchmarks Viewer</title>
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" type="text/css" rel="stylesheet" media="all">
   <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/spacelab/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
-	<!-- DataTables CSS -->
-	<link href="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.3/css/jquery.dataTables.css" type="text/css" rel="stylesheet" media="all">
+  <!-- DataTables CSS -->
+  <link href="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.3/css/jquery.dataTables.css" type="text/css" rel="stylesheet" media="all">
   <link href="./main.css" type="text/css" rel="stylesheet" media="all"/>
 </head>
 <body>
@@ -25,9 +25,7 @@
 ================================================== -->
 <div id="wrap">
   <div id="main">
-
     <div class="container-fluid">
-
       <div class="content">
         <ul class="breadcrumb">
           <li>
@@ -35,94 +33,94 @@
           </li>
         </ul>
         <div class="row-fluid">
-					<div class="span1">
-					</div>	
-					<div class="span10">
-						<div class="row">
-							<div class="span12">
-		            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
-				          <thead>
-				            <tr>
-				              <th>Date</th>
-				              <th>Lab</th>
-				              <th>Product</th>
-				              <th>AppServer</th>
-				              <th>Scenario</th>
-				              <th>VUs</th>
-				              <th>Nodes</th>
-				            </tr>
-				          </thead>
-				          <tbody>
-				            <?php
-				          function getDirectoryList ($directory) {
-				            // create an array to hold directory list
-				            $results = array();
-				            // create a handler for the directory
-				            $handler = opendir($directory);
-				            // open directory and walk through the filenames
-				            while ($file = readdir($handler)) {
-				              // if file isn't this directory or its parent, add it to the results
-				              if (($file != ".") && ($file != "..") && (filetype($directory."/".$file) == "dir")) {
-				                $results[] = $file;
-				              }
-				            }
-				            // tidy up: close the handler
-				            closedir($handler);
-				            // done!
-				            return $results;
-				          }
-				          //print each file name
-				          $benchmarks = getDirectoryList($_SERVER['BENCHMARKS_DIR']);
-				          sort($benchmarks);
-									$benchmarks = array_reverse($benchmarks);
-									$unparsable_directories = array();
-				          foreach( $benchmarks as $benchmark) {
-										$matches = array();								
-										if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
-										{
-		  		            ?>
-			  	            <tr>
-				                <td><?=$matches[1]?> <?=$matches[2]?></td>
-		                    <td><?=$matches[3]?></td>
-		                    <td><?=$matches[4]?></td>
-		                    <td><?=$matches[5]?></td>
-		                    <td><?=$matches[6]?></td>
-		                    <td><?=$matches[7]?></td>
-		                    <td><?=$matches[8]?></td>																				
-				              </tr>
-				              <?php 
-										}
-										else
-										{
-											$unparsable_directories[] = $benchmark;
-										}
-				          } 
-				          ?>
-				          </tbody>
-				        </table>									
-						  </div>
-					  </div>
-						<div class="row">
-							<div class="span12">
-		            <?php 
-								if(! empty($unparsable_directories)){
-									?>
-									<div class="alert alert-block">
-									  <button type="button" class="close" data-dismiss="alert">×</button>
-									  <h4>Warning!</h4>
-									<?php
-				          foreach( $unparsable_directories as $directory) {
-										echo "Cannot parse : ".$directory."<br/>";
-								  }							
-									?>
-								</div>							
-									<?php
-								}
-		            ?>							
-						  </div>
-					  </div>
-					</div>
-				</div>				
+          <div class="span1">
+          </div>  
+          <div class="span10">
+            <div class="row">
+              <div class="span12">
+                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Lab</th>
+                      <th>Product</th>
+                      <th>AppServer</th>
+                      <th>Scenario</th>
+                      <th>VUs</th>
+                      <th>Nodes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                  function getDirectoryList ($directory) {
+                    // create an array to hold directory list
+                    $results = array();
+                    // create a handler for the directory
+                    $handler = opendir($directory);
+                    // open directory and walk through the filenames
+                    while ($file = readdir($handler)) {
+                      // if file isn't this directory or its parent, add it to the results
+                      if (($file != ".") && ($file != "..") && (filetype($directory."/".$file) == "dir")) {
+                        $results[] = $file;
+                      }
+                    }
+                    // tidy up: close the handler
+                    closedir($handler);
+                    // done!
+                    return $results;
+                  }
+                  //print each file name
+                  $benchmarks = getDirectoryList($_SERVER['BENCHMARKS_DIR']);
+                  sort($benchmarks);
+                  $benchmarks = array_reverse($benchmarks);
+                  $unparsable_directories = array();
+                  foreach( $benchmarks as $benchmark) {
+                    $matches = array();                
+                    if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
+                    {
+                      ?>
+                      <tr>
+                        <td><?=$matches[1]?> <?=$matches[2]?></td>
+                        <td><?=$matches[3]?></td>
+                        <td><?=$matches[4]?></td>
+                        <td><?=$matches[5]?></td>
+                        <td><?=$matches[6]?></td>
+                        <td><?=$matches[7]?></td>
+                        <td><?=$matches[8]?></td>                                        
+                      </tr>
+                      <?php 
+                    }
+                    else
+                    {
+                      $unparsable_directories[] = $benchmark;
+                    }
+                  } 
+                  ?>
+                  </tbody>
+                </table>                  
+              </div>
+            </div>
+            <div class="row">
+              <div class="span12">
+                <?php 
+                if(! empty($unparsable_directories)){
+                  ?>
+                  <div class="alert alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <h4>Warning!</h4>
+                  <?php
+                  foreach( $unparsable_directories as $directory) {
+                    echo "Cannot parse : ".$directory."<br/>";
+                  }              
+                  ?>
+                </div>              
+                  <?php
+                }
+                ?>              
+              </div>
+            </div>
+          </div>
+        </div>        
       </div>
     </div>
     <!-- /container -->
@@ -136,7 +134,7 @@
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
 <!-- DataTables -->
-<script src="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.3/jquery.dataTables.min.js" type="text/javascript"></script>	
+<script src="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.3/jquery.dataTables.min.js" type="text/javascript"></script>  
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 <script type="text/javascript">
   /* Various customizations especially for bootstrap compatibility */
@@ -262,5 +260,5 @@
           "sDom":"<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>"
         });
   });
-</script>	
+</script>  
 </html>
