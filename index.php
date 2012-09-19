@@ -134,8 +134,6 @@
 	          "aaSorting":[
 	            [ 0, "desc" ]
 	          ],
-	          // Number of lines
-	          #{if _iDisplayLength != null}"iDisplayLength":${_iDisplayLength},#{/if}
 	          // Boostrap customization
 	          "sDom":"<'row'<'span${ ((_width == null) ? '6' : _width)}'l><'span${ ((_width == null) ? '6' : _width)}'f>r>t<'row'<'span${ ((_width == null) ? '6' : _width)}'i><'span${ ((_width == null) ? '6' : _width)}'p>>"
 	        });
