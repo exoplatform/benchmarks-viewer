@@ -93,7 +93,7 @@
 								{
 			            ?>
 			            <tr>
-			              <td colspan="8">$benchmark cannot be parsed</td>
+			              <td colspan="8"><?=$benchmark?> cannot be parsed</td>
 			            </tr>
 			            <?php 									
 								}
