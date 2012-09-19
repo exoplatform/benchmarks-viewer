@@ -74,7 +74,7 @@
 							$benchmarks = array_reverse($benchmarks);
 		          foreach( $benchmarks as $benchmark) {
 								$matches = array();
-								if(preg_match("([^-]*)-([^-]*)-([^-]*)-([^-]*)-([^-]*)-([^-]*)-([^-]*)-([^-]*)", $benchmark, $matches))
+								if(preg_match("([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)", $benchmark, $matches))
 								{
   		            ?>
 	  	            <tr>
