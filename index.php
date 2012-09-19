@@ -35,7 +35,9 @@
           </li>
         </ul>
         <div class="row-fluid">
-					<div class="span12">
+					<div class="span1">
+					</div>	
+					<div class="span11">
             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
 		          <thead>
 		            <tr>
@@ -249,7 +251,7 @@
             [ 0, "desc" ]
           ],
           // Boostrap customization
-          "sDom":"<'row'<'span5'l><'span5'f>r>t<'row'<'span5'i><'span5'p>>"
+          "sDom":"<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>"
         });
   });
 </script>	
