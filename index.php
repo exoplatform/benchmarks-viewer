@@ -15,7 +15,7 @@
 <div id="navbar" class="navbar navbar-fixed-top" data-dropdown="dropdown">
   <div class="navbar-inner">
     <div class="container">
-      <a class="pull-left" href="/">Benchmarks Viewer</a>
+      <a class="brand" href="#">Benchmarks Viewer</a>
     </div>
   </div>
 </div>
