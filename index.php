@@ -64,7 +64,8 @@
 		          //print each file name
 		          $benchmarks = getDirectoryList($_SERVER['BENCHMARKS_DIR']);
 		          sort($benchmarks);
-		          foreach( array_reverse($benchmarks) as $benchmark) {
+							$benchmarks = array_reverse($benchmarks)
+		          foreach( $benchmarks as $benchmark) {
 		            ?>
 		            <tr>
 		              <td><?=$benchmark?></td>
