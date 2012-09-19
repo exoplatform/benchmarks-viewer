@@ -26,7 +26,7 @@
 <div id="wrap">
   <div id="main">
 
-    <div class="container">
+    <div class="container-fluid">
 
       <div class="content">
         <ul class="breadcrumb">
@@ -34,7 +34,7 @@
             <a href="#">Benchmarks</a>
           </li>
         </ul>
-        <div class="row">
+        <div class="row-fluid">
 					<div class="span12">
             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
 		          <thead>
