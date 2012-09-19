@@ -52,7 +52,7 @@
 		            // open directory and walk through the filenames
 		            while ($file = readdir($handler)) {
 		              // if file isn't this directory or its parent, add it to the results
-		              if (($file != ".") && ($file != "..") && (filetype($file) == "dir")) {
+		              if (($file != ".") && ($file != "..") && (filetype($directory."/".$file) == "dir")) {
 		                $results[] = $file;
 		              }
 		            }
