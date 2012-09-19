@@ -128,7 +128,7 @@
 	        {
 	          // Customization for bootstrap
 	          "oLanguage":{
-	            "sLengthMenu":"_MENU_ " + i18n('datatables.sLengthMenu')
+	            "sLengthMenu":"_MENU_ records per page"
 	          },
 	          // Default sort
 	          "aaSorting":[
