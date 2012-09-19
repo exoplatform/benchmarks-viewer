@@ -34,7 +34,7 @@
             <a href="#">Benchmarks</a>
           </li>
         </ul>
-        <div class="row-fluid">
+        <div class="row">
 					<div class="span12">
             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
 		          <thead>
@@ -249,7 +249,7 @@
             [ 0, "desc" ]
           ],
           // Boostrap customization
-          "sDom":"<'row'<'span${ ((_width == null) ? '6' : _width)}'l><'span${ ((_width == null) ? '6' : _width)}'f>r>t<'row'<'span${ ((_width == null) ? '6' : _width)}'i><'span${ ((_width == null) ? '6' : _width)}'p>>"
+          "sDom":"<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>"
         });
   });
 </script>	
