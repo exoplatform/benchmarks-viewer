@@ -37,7 +37,7 @@
         <div class="row-fluid">
 					<div class="span1">
 					</div>	
-					<div class="span11">
+					<div class="span10">
             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
 		          <thead>
 		            <tr>

@@ -21,6 +21,10 @@ a:link, a:visited, a:hover, a:active {
     padding-bottom: 84px;
 }
 
+#breadcrumb {
+    margin-top: 12px;
+}
+
 /* must be same height as the footer */
 #footer {
     background: url("images/footer.png") no-repeat center;
