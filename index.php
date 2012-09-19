@@ -1,9 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Benchmarks Viewer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Benchmarks Viewer</title>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/spacelab/bootstrap.min.css rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-</body>
+<!-- navbar
+================================================== -->
+<div id="navbar" class="navbar navbar-fixed-top" data-dropdown="dropdown">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="pull-left" href="/">Benchmarks Viewer</a>
+    </div>
+  </div>
+</div>
+<!-- /navbar -->
+
+<!-- Main
+================================================== -->
+<div id="wrap">
+  <div id="main">
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+          <h1>Benchmarks <small>- List</small></h1>
+        </div>
+      </div>
+
+    </div>
+    <!-- /container -->
+
+  </div>
+</div>
+
+<!-- Footer
+================================================== -->
+<div id="footer">Copyright © 2000-2012. All rights Reserved, eXo Platform SAS.</div></body>
 </html>
