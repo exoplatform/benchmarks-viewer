@@ -39,7 +39,14 @@
 		        <table>
 		          <thead>
 		            <tr>
-		              <th>Benchmark</th>
+		              <th>Date</th>
+		              <th>Time</th>
+		              <th>Office</th>
+		              <th>Product</th>
+		              <th>AppServer</th>
+		              <th>Scenario</th>
+		              <th>VUs</th>
+		              <th>Nodes</th>
 		            </tr>
 		          </thead>
 		          <tbody>
@@ -66,11 +73,30 @@
 		          sort($benchmarks);
 							$benchmarks = array_reverse($benchmarks);
 		          foreach( $benchmarks as $benchmark) {
-		            ?>
-		            <tr>
-		              <td><?=$benchmark?></td>
-		            </tr>
-		            <?php 
+								$matches = array();
+								if(preg_match("([^-]*)-([^-]*)-([^-]*)-([^-]*)-([^-]*)-([^-]*)-([^-]*)-([^-]*)", $benchmark, $matches))
+								{
+  		            ?>
+	  	            <tr>
+		                <td><?=$matches[1]?></td>
+                    <td><?=$matches[2]?></td>
+                    <td><?=$matches[3]?></td>
+                    <td><?=$matches[4]?></td>
+                    <td><?=$matches[5]?></td>
+                    <td><?=$matches[6]?></td>
+                    <td><?=$matches[7]?></td>
+                    <td><?=$matches[8]?></td>																				
+		              </tr>
+		              <?php 
+								}
+								else
+								{
+			            ?>
+			            <tr>
+			              <td colspan="8">$benchmark cannot be parsed</td>
+			            </tr>
+			            <?php 									
+								}
 		          } 
 		          ?>
 		          </tbody>
