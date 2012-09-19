@@ -41,7 +41,7 @@
 		            <tr>
 		              <th>Date</th>
 		              <th>Time</th>
-		              <th>Office</th>
+		              <th>Lab</th>
 		              <th>Product</th>
 		              <th>AppServer</th>
 		              <th>Scenario</th>
@@ -74,7 +74,8 @@
 							$benchmarks = array_reverse($benchmarks);
 		          foreach( $benchmarks as $benchmark) {
 								$matches = array();
-								if(preg_match("([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)", $benchmark, $matches))
+								
+								if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
 								{
   		            ?>
 	  	            <tr>
