@@ -1,13 +1,9 @@
 /** Main layout **/
 html, body {
-    background: #eeeeee !important;
-    font-family: Helvetica, Arial, Sans !important;
     height: 100%;
-    margin: 0px;
 }
 
 body {
-    width: 100%;
     margin: auto;
 }
 
@@ -34,35 +30,6 @@ a:link, a:visited, a:hover, a:active {
     height: 44px;
     text-align: center;
     clear: both;
-}
-
-/*Opera Fix*/
-body:before {
-    content: "";
-    height: 100%;
-    float: left;
-    width: 0;
-    margin-top: -32767px;
-}
-
-/* The white background content wrapper */
-.content-fluid {
-  background-color      : #fff;
-  padding               : 20px;
-  margin                : 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
-  -webkit-border-radius : 0 0 6px 6px;
-  -moz-border-radius    : 0 0 6px 6px;
-  border-radius         : 0 0 6px 6px;
-  -webkit-box-shadow    : 0 1px 2px rgba(0, 0, 0, .15);
-  -moz-box-shadow       : 0 1px 2px rgba(0, 0, 0, .15);
-  box-shadow            : 0 1px 2px rgba(0, 0, 0, .15);
-}
-
-/* Page header tweaks */
-.page-header {
-  background-color : #f5f5f5;
-  padding          : 20px 20px 10px;
-  margin           : -20px -20px 20px;
 }
 
 .navbar img {
