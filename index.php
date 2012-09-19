@@ -90,7 +90,7 @@
                         <td><?=$matches[6]?></td>
                         <td><?=$matches[7]?></td>
                         <td><?=$matches[8]?></td>     
-												<td></td>                                   
+												<td><a class="btn btn-small" rel="tooltip" data-placement="right" title="view" href="./bench.php?benchmark=<?=$benchmark?>"><i class="icon-info-sign"></i></a></td>
                       </tr>
                       <?php 
                     }
@@ -260,11 +260,6 @@
           "aaSorting":[
             [ 0, "desc" ]
           ],
-          // Create actions
-          "fnRowCallback":function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-            $('td:eq(7)', nRow).html('<a class="btn btn-small" rel="tooltip" data-placement="right" title="view" href="./bench.php?benchmark=XXXX"><i class="icon-info-sign"></i></a>');
-            return nRow;
-          },					
           // Boostrap customization
           "sDom":"<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>"
         });
