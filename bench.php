@@ -58,16 +58,32 @@ function getImagesList ($directory) {
             </div>
           </div>
           <div class="row-fluid">
-            <div class="span10 offset1">
+            <div class="span2">
+              <ul class="nav nav-list">
+                <?php
+                $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
+                foreach( $images as $image) {
+                  ?>
+                <li><a href="#<?=$image?>"><i class="icon-chevron-right"></i> <?=$image?> </a></li>
+                <?php
+                }
+                ?>
+              </ul>
+            </div>
+            <div class="span10">
               <?php
               $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
               foreach( $images as $image) {
                 ?>
-              <div class="row-fluid">
-                <div class="span12">
-                  <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="" />
+              <section id="dropdowns">
+                <div class="page-header">
+                  <h1>Dropdown menus</h1>
                 </div>
-              </div>
+                <h2>
+                  <?=$image?>
+                </h2>
+                <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="<?=$image?>" />
+              </section>
               <?php
               }
               ?>
