@@ -65,7 +65,7 @@ function getImagesList ($directory) {
                       ?>
                     <li class="span8">
                       <div class="thumbnail">
-                        <a data-toggle="modal" href="<?="#".$image?>" class="thumbnail">
+                        <a data-toggle="modal" href='<?="#".$image?>'>
                         <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt=""/>
                         </a>
                         <h3>
