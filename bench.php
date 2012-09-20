@@ -3,23 +3,6 @@
 $benchmarksDirectory=$_SERVER['BENCHMARKS_DIR'];
 $benchmarksURL=$_SERVER['BENCHMARKS_URL'];
 $benchmark = $_GET['benchmark'];
-function getImagesList ($directory) {
-  // create an array to hold the list
-  $results = array();
-  // create a handler for the directory
-  $handler = opendir($directory);
-  // open directory and walk through the filenames
-  while ($file = readdir($handler)) {
-    // if file isn't this directory or its parent, add it to the results
-    if (($file != ".") && ($file != "..") && (filetype($directory."/".$file) == "file") && preg_match("/.*\.png/", $file)) {
-      $results[] = $file;
-    }
-  }
-  // tidy up: close the handler
-  closedir($handler);
-  // done!
-  return $results;
-}
 ?>
 <html>
 <head>
@@ -46,32 +29,84 @@ function getImagesList ($directory) {
         <div class="row-fluid">
           <div class="span3 left-sidebar">
             <ul class="nav nav-list left-sidenav">
-              <?php
-              $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
-              foreach( $images as $image) {
-                ?>
-              <li><a href="#<?=$image?>"><i class="icon-chevron-right"></i> <?=$image?> </a></li>
-              <?php
-              }
-              ?>
+              <li><a href="#ResponseTimesOverTime"><i class="icon-chevron-right"></i> Response Times Over Time </a></li>
+              <li><a href="#ResponseTimesVsThreads"><i class="icon-chevron-right"></i> Response Times Vs Threads </a></li>
+              <li><a href="#ThreadsStateOverTime"><i class="icon-chevron-right"></i> Threads State Over Time </a></li>
+              <li><a href="#ThroughputOverTime"><i class="icon-chevron-right"></i> Throughput Over Time </a></li>
+              <li><a href="#ThroughputVsThreads"><i class="icon-chevron-right"></i> Throughput Vs Threads </a></li>
+              <li><a href="#TransactionsPerSecond"><i class="icon-chevron-right"></i> Transactions Per Second </a></li>
             </ul>
           </div>
           <div class="span9">
-            <?php
-            $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
-            foreach( $images as $image) {
-              ?>
-            <section id="<?=$image?>">
+            <section id="ResponseTimesOverTime">
               <div class="page-header">
-                <h1>
-                  <?=$image?>
-                </h1>
+                <h1>Response Times Over Time</h1>
               </div>
-              <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="<?=$image?>" />
+              <div class="row-fluid">
+                <div class="span6">
+                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Aggregated.png" alt="bench-ResponseTimesOverTime_Aggregated.png" />
+                </div>
+                <div class="span6">
+                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Details.png" alt="bench-ResponseTimesOverTime_Details.png" />
+                </div>
+              </div>
             </section>
-            <?php
-            }
-            ?>
+            <section id="ResponseTimesVsThreads">
+              <div class="page-header">
+                <h1>Response Times Vs Threads</h1>
+              </div>
+              <div class="row-fluid">
+                <div class="span6">
+                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Aggregated.png" alt="bench-ResponseTimesVsThreads_Aggregated.png" />
+                </div>
+                <div class="span6">
+                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Details.png" alt="bench-ResponseTimesVsThreads_Details.png" />
+                </div>
+              </div>
+            </section>
+            <section id="ThreadsStateOverTime">
+              <div class="page-header">
+                <h1>Threads State Over Time</h1>
+              </div>
+              <div class="row-fluid">
+                <div class="span12">
+                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThreadsStateOverTime_Aggregated.png" alt="bench-ThreadsStateOverTime_Aggregated.png" />
+                </div>
+              </div>
+            </section>
+            <section id="ThroughputOverTime">
+              <div class="page-header">
+                <h1>Throughput Over Time</h1>
+              </div>
+              <div class="row-fluid">
+                <div class="span12">
+                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputOverTime_Details.png" alt="bench-ThroughputOverTime_Details.png" />
+                </div>
+              </div>
+            </section>
+            <section id="ThroughputVsThreads">
+              <div class="page-header">
+                <h1>Throughput Vs Threads</h1>
+              </div>
+              <div class="row-fluid">
+                <div class="span12">
+                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputVsThreads_Details.png" alt="bench-ThroughputVsThreads_Details.png" />
+                </div>
+              </div>
+            </section>
+            <section id="TransactionsPerSecond">
+              <div class="page-header">
+                <h1>Transactions Per Second</h1>
+              </div>
+              <div class="row-fluid">
+                <div class="span6">
+                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Aggregated.png" alt="bench-TransactionsPerSecond_Aggregated.png" />
+                </div>
+                <div class="span6">
+                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Details.png" alt="bench-TransactionsPerSecond_Details.png" />
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
