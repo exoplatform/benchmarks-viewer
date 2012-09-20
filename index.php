@@ -205,7 +205,7 @@ $benchmarksURL=$_SERVER['BENCHMARKS_URL'];
                       $matches = array();
                       if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
                       {
-                        ?>
+                      	?>
                     <tr>
                       <td><?=displayDate($matches[1]."-".$matches[2])?></td>
                       <td><?=$matches[3]?></td>
@@ -220,7 +220,7 @@ $benchmarksURL=$_SERVER['BENCHMARKS_URL'];
                       }
                       else
                       {
-                        $unparsable_directories[] = $benchmark;
+                      	$unparsable_directories[] = $benchmark;
                       }
                     }
                     ?>
