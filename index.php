@@ -143,8 +143,7 @@ $benchmarksURL=$_SERVER['BENCHMARKS_URL'];
 </script>
 </head>
 <body>
-  <!-- navbar
-================================================== -->
+  <!-- navbar ================================================== -->
   <div id="navbar" class="navbar navbar-fixed-top" data-dropdown="dropdown">
     <div class="navbar-inner">
       <div class="container-fluid">
@@ -153,8 +152,7 @@ $benchmarksURL=$_SERVER['BENCHMARKS_URL'];
     </div>
   </div>
   <!-- /navbar -->
-  <!-- Main
-================================================== -->
+  <!-- Main ================================================== -->
   <div id="wrap">
     <div id="main">
       <div class="container-fluid">
@@ -264,8 +262,7 @@ $benchmarksURL=$_SERVER['BENCHMARKS_URL'];
       <!-- /container -->
     </div>
   </div>
-  <!-- Footer
-================================================== -->
+  <!-- Footer ================================================== -->
   <div id="footer">Copyright © 2000-2012. All rights Reserved, eXo Platform SAS.</div>
 </body>
 </html>

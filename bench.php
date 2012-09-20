@@ -30,44 +30,64 @@ function getImagesList ($directory) {
 <link href="./main.css" type="text/css" rel="stylesheet" media="all" />
 </head>
 <body data-spy="scroll" data-target=".sidenav">
-  <ul class="breadcrumb">
-    <li><a href="./index.php">Benchmarks</a> <span class="divider">/</span></li>
-    <li class="active"><?=$benchmark?></li>
-  </ul>
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span3 sidebar">
-        <ul class="nav nav-list sidenav">
-          <?php
-          $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
-          foreach( $images as $image) {
-            ?>
-          <li><a href="#<?=$image?>"><i class="icon-chevron-right"></i> <?=$image?> </a></li>
-          <?php
-          }
-          ?>
-        </ul>
-      </div>
-      <div class="span9">
-        <?php
-        $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
-        foreach( $images as $image) {
-          ?>
-        <section id="<?=$image?>">
-          <div class="page-header">
-            <h1>
-              <?=$image?>
-            </h1>
-          </div>
-          <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="<?=$image?>" />
-        </section>
-        <?php
-        }
-        ?>
+  <!-- navbar ================================================== -->
+  <div id="navbar" class="navbar navbar-fixed-top" data-dropdown="dropdown">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="brand" href="#">Benchmarks Viewer</a>
       </div>
     </div>
-    <!-- /container -->
   </div>
+  <!-- /navbar -->
+  <!-- Main ================================================== -->
+  <div id="wrap">
+    <div id="main">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span12">
+            <ul class="breadcrumb">
+              <li><a href="./index.php">Benchmarks</a> <span class="divider">/</span></li>
+              <li class="active"><?=$benchmark?></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span3 sidebar">
+            <ul class="nav nav-list sidenav">
+              <?php
+              $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
+              foreach( $images as $image) {
+                ?>
+              <li><a href="#<?=$image?>"><i class="icon-chevron-right"></i> <?=$image?> </a></li>
+              <?php
+              }
+              ?>
+            </ul>
+          </div>
+          <div class="span9">
+            <?php
+            $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
+            foreach( $images as $image) {
+              ?>
+            <section id="<?=$image?>">
+              <div class="page-header">
+                <h1>
+                  <?=$image?>
+                </h1>
+              </div>
+              <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="<?=$image?>" />
+            </section>
+            <?php
+            }
+            ?>
+          </div>
+        </div>
+      </div>
+      <!-- /container -->
+    </div>
+  </div>
+  <!-- Footer ================================================== -->
+  <div id="footer">Copyright ¬© 2000-2012. All rights Reserved, eXo Platform SAS.</div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
   <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
   <script type="text/javascript">
