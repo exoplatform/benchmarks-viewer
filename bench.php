@@ -65,7 +65,9 @@ function getImagesList ($directory) {
                       ?>
                     <li class="span8">
                       <div class="thumbnail">
-                        <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="">
+                        <a data-toggle="modal" href="#<?=$image?>" class="thumbnail">
+                        <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt=""/>
+                        </a>
                         <h3>
                           <?=$image?>
                         </h3>
@@ -83,9 +85,7 @@ function getImagesList ($directory) {
                             <ul class="thumbnails">
                               <li class="span12">
                                 <div class="thumbnail">
-                                  <a data-toggle="modal" href="#<?=$image?>" class="thumbnail"><img
-                                    src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt=""
-                                  > </a>
+                                  <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt=""/>
                                 </div>
                               </li>
                             </ul>
