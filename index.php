@@ -156,104 +156,95 @@ $benchmarksURL=$_SERVER['BENCHMARKS_URL'];
   <div id="wrap">
     <div id="main">
       <div class="container-fluid">
-        <div class="content">
-          <div class="row-fluid">
-            <div class="span12">
-              <ul class="breadcrumb">
-                <li class="active">Benchmarks</li>
-              </ul>
-            </div>
-          </div>
-          <div class="row-fluid">
-            <div class="span10 offset1">
-              <div class="row-fluid">
-                <div class="span12">
-                  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
-                    <thead>
-                      <tr>
-                        <th>Date</th>
-                        <th>Lab</th>
-                        <th>Product</th>
-                        <th>AppServer</th>
-                        <th>Scenario</th>
-                        <th>VUs</th>
-                        <th>Nodes</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      function getDirectoryList ($directory) {
-                        // create an array to hold directory list
-                        $results = array();
-                        // create a handler for the directory
-                        $handler = opendir($directory);
-                        // open directory and walk through the filenames
-                        while ($file = readdir($handler)) {
-                          // if file isn't this directory or its parent, add it to the results
-                          if (($file != ".") && ($file != "..") && (filetype($directory."/".$file) == "dir")) {
-                            $results[] = $file;
-                          }
-                        }
-                        // tidy up: close the handler
-                        closedir($handler);
-                        // done!
-                        return $results;
-                      }
-                      function displayDate ($date_as_string) {
-                        $date = DateTime::createFromFormat('Ymd-His', $date_as_string);
-                        return $date->format('Y/M/d - H:i:s T');
-                      }
-                      //print each file name
-                      $benchmarks = getDirectoryList($benchmarksDirectory);
-                      sort($benchmarks);
-                      $benchmarks = array_reverse($benchmarks);
-                      $unparsable_directories = array();
-                      foreach( $benchmarks as $benchmark) {
-                        $matches = array();
-                        if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
-                        {
-                          ?>
-                      <tr>
-                        <td><?=displayDate($matches[1]."-".$matches[2])?></td>
-                        <td><?=$matches[3]?></td>
-                        <td><?=$matches[4]?></td>
-                        <td><?=$matches[5]?></td>
-                        <td><?=$matches[6]?></td>
-                        <td><?=$matches[7]?></td>
-                        <td><?=$matches[8]?></td>
-                        <td><a class="btn btn-small" rel="tooltip" data-placement="right" title="view" href="./bench.php?benchmark=<?=$benchmark?>"><i class="icon-info-sign"></i> </a></td>
-                      </tr>
-                      <?php
-                        }
-                        else
-                        {
-                          $unparsable_directories[] = $benchmark;
-                        }
-                      }
-                      ?>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="row-fluid">
-                <div class="span12">
-                  <?php
-                  if(! empty($unparsable_directories)){
-                    ?>
-                  <div class="alert alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <h4>Warning!</h4>
+        <div class="row-fluid">
+          <div class="span10 offset1">
+            <div class="row-fluid">
+              <div class="span12">
+                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Lab</th>
+                      <th>Product</th>
+                      <th>AppServer</th>
+                      <th>Scenario</th>
+                      <th>VUs</th>
+                      <th>Nodes</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
                     <?php
-                    foreach( $unparsable_directories as $directory) {
-                      echo "Cannot parse : ".$directory."<br/>";
+                    function getDirectoryList ($directory) {
+                      // create an array to hold directory list
+                      $results = array();
+                      // create a handler for the directory
+                      $handler = opendir($directory);
+                      // open directory and walk through the filenames
+                      while ($file = readdir($handler)) {
+                        // if file isn't this directory or its parent, add it to the results
+                        if (($file != ".") && ($file != "..") && (filetype($directory."/".$file) == "dir")) {
+                          $results[] = $file;
+                        }
+                      }
+                      // tidy up: close the handler
+                      closedir($handler);
+                      // done!
+                      return $results;
+                    }
+                    function displayDate ($date_as_string) {
+                      $date = DateTime::createFromFormat('Ymd-His', $date_as_string);
+                      return $date->format('Y/M/d - H:i:s T');
+                    }
+                    //print each file name
+                    $benchmarks = getDirectoryList($benchmarksDirectory);
+                    sort($benchmarks);
+                    $benchmarks = array_reverse($benchmarks);
+                    $unparsable_directories = array();
+                    foreach( $benchmarks as $benchmark) {
+                      $matches = array();
+                      if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
+                      {
+                        ?>
+                    <tr>
+                      <td><?=displayDate($matches[1]."-".$matches[2])?></td>
+                      <td><?=$matches[3]?></td>
+                      <td><?=$matches[4]?></td>
+                      <td><?=$matches[5]?></td>
+                      <td><?=$matches[6]?></td>
+                      <td><?=$matches[7]?></td>
+                      <td><?=$matches[8]?></td>
+                      <td><a class="btn btn-small" rel="tooltip" data-placement="right" title="view" href="./bench.php?benchmark=<?=$benchmark?>"><i class="icon-info-sign"></i> </a></td>
+                    </tr>
+                    <?php
+                      }
+                      else
+                      {
+                        $unparsable_directories[] = $benchmark;
+                      }
                     }
                     ?>
-                  </div>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span12">
+                <?php
+                if(! empty($unparsable_directories)){
+                  ?>
+                <div class="alert alert-block">
+                  <button type="button" class="close" data-dismiss="alert">×</button>
+                  <h4>Warning!</h4>
                   <?php
+                  foreach( $unparsable_directories as $directory) {
+                    echo "Cannot parse : ".$directory."<br/>";
                   }
                   ?>
                 </div>
+                <?php
+                }
+                ?>
               </div>
             </div>
           </div>
