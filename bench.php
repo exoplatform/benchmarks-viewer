@@ -44,57 +44,51 @@ function getImagesList ($directory) {
   <!-- /navbar -->
   <!-- Main
 ================================================== -->
-  <div id="wrap">
-    <div id="main">
-      <!-- /container -->
-      <div class="container-fluid">
-        <div class="content">
-          <div class="row-fluid">
-            <div class="span12">
-              <ul class="breadcrumb">
-                <li><a href="./index.php">Benchmarks</a> <span class="divider">/</span></li>
-                <li class="active"><?=$benchmark?></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row-fluid">
-            <div class="span3 sidenav">
-              <ul class="nav nav-list sidenav">
-                <?php
-                $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
-                foreach( $images as $image) {
-                  ?>
-                <li><a href="#<?=$image?>"><i class="icon-chevron-right"></i> <?=$image?> </a></li>
-                <?php
-                }
-                ?>
-              </ul>
-            </div>
-            <div class="span9">
-              <?php
-              $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
-              foreach( $images as $image) {
-                ?>
-              <section id="<?=$image?>">
-                <div class="page-header">
-                  <h1>
-                    <?=$image?>
-                  </h1>
-                </div>
-                <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="<?=$image?>" />
-              </section>
-              <?php
-              }
-              ?>
-            </div>
-          </div>
+  <!-- /container -->
+  <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+          <ul class="breadcrumb">
+            <li><a href="./index.php">Benchmarks</a> <span class="divider">/</span></li>
+            <li class="active"><?=$benchmark?></li>
+          </ul>
         </div>
-        <!-- /container -->
       </div>
-    </div>
+      <div class="row-fluid">
+        <div class="span3 sidenav">
+          <ul class="nav nav-list sidenav">
+            <?php
+            $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
+            foreach( $images as $image) {
+              ?>
+            <li><a href="#<?=$image?>"><i class="icon-chevron-right"></i> <?=$image?> </a></li>
+            <?php
+            }
+            ?>
+          </ul>
+        </div>
+        <div class="span9">
+          <?php
+          $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
+          foreach( $images as $image) {
+            ?>
+          <section id="<?=$image?>">
+            <div class="page-header">
+              <h1>
+                <?=$image?>
+              </h1>
+            </div>
+            <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="<?=$image?>" />
+          </section>
+          <?php
+          }
+          ?>
+        </div>
+      </div>
+    <!-- /container -->
   </div>
   <!-- Footer
 ================================================== -->
-  <div id="footer">Copyright ¬© 2000-2012. All rights Reserved, eXo Platform SAS.</div>
+  <div id="footer">Copyright © 2000-2012. All rights Reserved, eXo Platform SAS.</div>
 </body>
 </html>
