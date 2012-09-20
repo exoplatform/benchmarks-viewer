@@ -28,8 +28,6 @@ function getImagesList ($directory) {
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" type="text/css" rel="stylesheet" media="all">
 <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/spacelab/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
 <link href="./main.css" type="text/css" rel="stylesheet" media="all" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 </head>
 <body data-spy="scroll" data-target=".sidenav">
   <ul class="breadcrumb">
@@ -70,8 +68,7 @@ function getImagesList ($directory) {
     </div>
     <!-- /container -->
   </div>
-  <!-- Footer
-================================================== -->
-  <div id="footer">Copyright © 2000-2012. All rights Reserved, eXo Platform SAS.</div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>
