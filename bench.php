@@ -7,7 +7,7 @@ $benchmark = $_GET['benchmark'];
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Benchmarks Viewer</title>
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" type="text/css" rel="stylesheet" media="all">
-<link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/slate/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/spacelab/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
 <link href="./main.css" type="text/css" rel="stylesheet" media="all" />
 </head>
 <body>
@@ -15,7 +15,7 @@ $benchmark = $_GET['benchmark'];
 ================================================== -->
   <div id="navbar" class="navbar navbar-fixed-top" data-dropdown="dropdown">
     <div class="navbar-inner">
-      <div class="container">
+      <div class="container-fluid">
         <a class="brand" href="#">Benchmarks Viewer</a>
       </div>
     </div>
