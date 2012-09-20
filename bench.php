@@ -29,15 +29,15 @@ function getImagesList ($directory) {
 <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/spacelab/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
 <link href="./main.css" type="text/css" rel="stylesheet" media="all" />
 </head>
-<body data-spy="scroll" data-target=".bs-docs-sidenav">
+<body data-spy="scroll" data-target=".sidenav">
   <ul class="breadcrumb">
     <li><a href="./index.php">Benchmarks</a> <span class="divider">/</span></li>
     <li class="active"><?=$benchmark?></li>
   </ul>
   <div class="container-fluid">
     <div class="row-fluid">
-      <div class="span3 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav">
+      <div class="span3 sidebar">
+        <ul class="nav nav-list sidenav">
           <?php
           $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
           foreach( $images as $image) {
@@ -79,7 +79,7 @@ function getImagesList ($directory) {
     var $window = $(window)
 
     // side bar
-    $('.bs-docs-sidenav').affix({
+    $('.sidenav').affix({
       offset: {
         top: 210
       , bottom: 270
