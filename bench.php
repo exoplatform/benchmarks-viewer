@@ -31,7 +31,7 @@ function getImagesList ($directory) {
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 </head>
-<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<body data-spy="scroll" data-target=".sidenav">
   <!-- navbar
 ================================================== -->
   <div id="navbar" class="navbar navbar-fixed-top" data-dropdown="dropdown">
@@ -58,8 +58,8 @@ function getImagesList ($directory) {
             </div>
           </div>
           <div class="row-fluid">
-            <div class="span2 bs-docs-sidebar">
-              <ul class="nav nav-list bs-docs-sidenav">
+            <div class="span3">
+              <ul class="nav nav-list bs-docs-sidenav" id="sidenav">
                 <?php
                 $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
                 foreach( $images as $image) {
@@ -70,7 +70,7 @@ function getImagesList ($directory) {
                 ?>
               </ul>
             </div>
-            <div class="span10">
+            <div class="span9">
               <?php
               $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
               foreach( $images as $image) {
