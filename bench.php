@@ -17,7 +17,7 @@ $benchmark = $_GET['benchmark'];
   <div id="navbar" class="navbar navbar-fixed-top" data-dropdown="dropdown">
     <div class="navbar-inner">
       <div class="container-fluid">
-        <a class="brand" href="#">Benchmarks Viewer</a>
+        <a class="brand" href="./index.php">Benchmarks Viewer</a>
       </div>
     </div>
   </div>
@@ -114,7 +114,7 @@ $benchmark = $_GET['benchmark'];
     </div>
   </div>
   <!-- Footer ================================================== -->
-  <div id="footer">Copyright ¬© 2000-2012. All rights Reserved, eXo Platform SAS.</div>
+  <div id="footer">Copyright © 2000-2012. All rights Reserved, eXo Platform SAS.</div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
   <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
