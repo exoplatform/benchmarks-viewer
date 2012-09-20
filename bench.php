@@ -71,6 +71,27 @@ function getImagesList ($directory) {
                         </h3>
                         <p>Thumbnail caption...</p>
                       </div>
+                      <div class="modal fade" id="<?=$image?>">
+                        <div class="modal-header">
+                          <a class="close" data-dismiss="modal">x</a>
+                          <h3>
+                            <?=$image?>
+                          </h3>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row-fluid">
+                            <ul class="thumbnails">
+                              <li class="span12">
+                                <div class="thumbnail">
+                                  <a data-toggle="modal" href="#<?=$image?>" class="thumbnail"><img
+                                    src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt=""
+                                  > </a>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div> ·
                     </li>
                     <?php
                     }
@@ -87,7 +108,7 @@ function getImagesList ($directory) {
   </div>
   <!-- Footer
 ================================================== -->
-  <div id="footer">Copyright © 2000-2012. All rights Reserved, eXo Platform SAS.</div>
+  <div id="footer">Copyright ¬© 2000-2012. All rights Reserved, eXo Platform SAS.</div>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
