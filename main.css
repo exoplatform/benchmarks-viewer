@@ -21,10 +21,6 @@ a:link, a:visited, a:hover, a:active {
     padding-bottom: 84px;
 }
 
-#breadcrumb {
-    padding-top: 40px;
-}
-
 /* must be same height as the footer */
 #footer {
     background: url("images/footer.png") no-repeat center;
@@ -34,13 +30,6 @@ a:link, a:visited, a:hover, a:active {
     height: 44px;
     text-align: center;
     clear: both;
-}
-
-.navbar img {
-  margin-top: 10px;
-  margin-right: 10px;
-  /* Ensure to keep the same size on the navbar even when it has no menu */
-  margin-bottom: 10px;
 }
 
 
