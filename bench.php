@@ -44,14 +44,6 @@ function getImagesList ($directory) {
     <div id="main">
       <div class="container-fluid">
         <div class="row-fluid">
-          <div class="span12">
-            <ul class="breadcrumb">
-              <li><a href="./index.php">Benchmarks</a> <span class="divider">/</span></li>
-              <li class="active"><?=$benchmark?></li>
-            </ul>
-          </div>
-        </div>
-        <div class="row-fluid">
           <div class="span3 left-sidebar">
             <ul class="nav nav-list left-sidenav">
               <?php
