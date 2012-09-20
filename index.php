@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+$benchmarksDirectory=$_SERVER['BENCHMARKS_DIR'];
+$benchmarksURL=$_SERVER['BENCHMARKS_URL'];
+?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -203,7 +207,7 @@
                         return $date->format('Y/M/d - H:i:s T');
                       }
                       //print each file name
-                      $benchmarks = getDirectoryList($_SERVER['BENCHMARKS_DIR']);
+                      $benchmarks = getDirectoryList($benchmarksDirectory);
                       sort($benchmarks);
                       $benchmarks = array_reverse($benchmarks);
                       $unparsable_directories = array();

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php
+$benchmarksDirectory=$_SERVER['BENCHMARKS_DIR'];
+$benchmarksURL=$_SERVER['BENCHMARKS_URL'];
 $benchmark = $_GET['benchmark'];
 function getImagesList ($directory) {
   // create an array to hold the list
@@ -58,49 +60,22 @@ function getImagesList ($directory) {
           <div class="row-fluid">
             <div class="span10 offset1">
               <?php
-              $images = getImagesList($_SERVER['BENCHMARKS_DIR']."/".$benchmark."/jmeter-results");
+              $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
               foreach( $images as $image) {
                 ?>
               <div class="row-fluid">
-                <div class="span4"></div>
-                <div class="span8">
-                  <ul class="thumbnails">
-                    <li class="span8">
-                      <div class="thumbnail">
-                        <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="" />
-                        <h3>
-                          <?=$image?>
-                        </h3>
-                        <p><button type="button" data-toggle="modal" data-target="#<?=$image?>">Enlarge ...</button></p>
-                      </div>
-                    </li>
-                  </ul>
+                <div class="span12">
+                  <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="" />
                 </div>
               </div>
-            </div>
-            <div class="modal fade" id="<?=$image?>" tabindex="-1" role="dialog" aria-labelledby="<?=$image?>-label" aria-hidden="true">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 id="<?=$image?>-label">
-                  <?=$image?>
-                </h3>
-              </div>
-              <div class="modal-body">
-                <p>
-                  <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="" />
-                </p>
-              </div>
-              <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-              </div>
-            </div>
-            <?php
+              <?php
               }
               ?>
+            </div>
           </div>
         </div>
+        <!-- /container -->
       </div>
-      <!-- /container -->
     </div>
   </div>
   <!-- Footer
