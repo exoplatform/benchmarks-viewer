@@ -1,87 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <title>Benchmarks Viewer</title>
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" type="text/css" rel="stylesheet" media="all">
-  <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/spacelab/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
-  <!-- DataTables CSS -->
-  <link href="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.3/css/jquery.dataTables.css" type="text/css" rel="stylesheet" media="all">
-  <link href="./main.css" type="text/css" rel="stylesheet" media="all"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Benchmarks Viewer</title>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/spacelab/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<!-- DataTables CSS -->
+<link href="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.3/css/jquery.dataTables.css" type="text/css" rel="stylesheet" media="all">
+<link href="./main.css" type="text/css" rel="stylesheet" media="all" />
 </head>
 <body>
-<!-- navbar
+  <!-- navbar
 ================================================== -->
-<div id="navbar" class="navbar navbar-fixed-top" data-dropdown="dropdown">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="brand" href="#">Benchmarks Viewer</a>
+  <div id="navbar" class="navbar navbar-fixed-top" data-dropdown="dropdown">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">Benchmarks Viewer</a>
+      </div>
     </div>
   </div>
-</div>
-<!-- /navbar -->
-
-<!-- Main
+  <!-- /navbar -->
+  <!-- Main
 ================================================== -->
-<div id="wrap">
-  <div id="main">
-    <div class="container-fluid">
-      <div class="content">
-        <ul class="breadcrumb">
-          <li class="active">Benchmarks</li>
-        </ul>
-        <div class="row-fluid">
-          <div class="span1">
-          </div>  
-          <div class="span10">
-            <div class="row">
-              <div class="span12">
-                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
-                  <thead>
-                    <tr>
-                      <th>Date</th>
-                      <th>Lab</th>
-                      <th>Product</th>
-                      <th>AppServer</th>
-                      <th>Scenario</th>
-                      <th>VUs</th>
-                      <th>Nodes</th>
-											<th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                  function getDirectoryList ($directory) {
-                    // create an array to hold directory list
-                    $results = array();
-                    // create a handler for the directory
-                    $handler = opendir($directory);
-                    // open directory and walk through the filenames
-                    while ($file = readdir($handler)) {
-                      // if file isn't this directory or its parent, add it to the results
-                      if (($file != ".") && ($file != "..") && (filetype($directory."/".$file) == "dir")) {
-                        $results[] = $file;
+  <div id="wrap">
+    <div id="main">
+      <div class="container-fluid">
+        <div class="content">
+          <ul class="breadcrumb">
+            <li class="active">Benchmarks</li>
+          </ul>
+          <div class="row-fluid">
+            <div class="span1"></div>
+            <div class="span10">
+              <div class="row">
+                <div class="span12">
+                  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Lab</th>
+                        <th>Product</th>
+                        <th>AppServer</th>
+                        <th>Scenario</th>
+                        <th>VUs</th>
+                        <th>Nodes</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                      function getDirectoryList ($directory) {
+                        // create an array to hold directory list
+                        $results = array();
+                        // create a handler for the directory
+                        $handler = opendir($directory);
+                        // open directory and walk through the filenames
+                        while ($file = readdir($handler)) {
+                          // if file isn't this directory or its parent, add it to the results
+                          if (($file != ".") && ($file != "..") && (filetype($directory."/".$file) == "dir")) {
+                            $results[] = $file;
+                          }
+                        }
+                        // tidy up: close the handler
+                        closedir($handler);
+                        // done!
+                        return $results;
                       }
-                    }
-                    // tidy up: close the handler
-                    closedir($handler);
-                    // done!
-                    return $results;
-                  }
-				          function displayDate ($date_as_string) {
-				            $date = DateTime::createFromFormat('Ymd-His', $date_as_string);
-				            return $date->format('Y/M/d - H:i:s T');
-				          }									
-                  //print each file name
-                  $benchmarks = getDirectoryList($_SERVER['BENCHMARKS_DIR']);
-                  sort($benchmarks);
-                  $benchmarks = array_reverse($benchmarks);
-                  $unparsable_directories = array();
-                  foreach( $benchmarks as $benchmark) {
-                    $matches = array();                
-                    if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
-                    {
-                      ?>
+                      function displayDate ($date_as_string) {
+                        $date = DateTime::createFromFormat('Ymd-His', $date_as_string);
+                        return $date->format('Y/M/d - H:i:s T');
+                      }
+                      //print each file name
+                      $benchmarks = getDirectoryList($_SERVER['BENCHMARKS_DIR']);
+                      sort($benchmarks);
+                      $benchmarks = array_reverse($benchmarks);
+                      $unparsable_directories = array();
+                      foreach( $benchmarks as $benchmark) {
+                        $matches = array();
+                        if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
+                        {
+                          ?>
                       <tr>
                         <td><?=displayDate($matches[1]."-".$matches[2])?></td>
                         <td><?=$matches[3]?></td>
@@ -89,56 +87,54 @@
                         <td><?=$matches[5]?></td>
                         <td><?=$matches[6]?></td>
                         <td><?=$matches[7]?></td>
-                        <td><?=$matches[8]?></td>     
-												<td><a class="btn btn-small" rel="tooltip" data-placement="right" title="view" href="./bench.php?benchmark=<?=$benchmark?>"><i class="icon-info-sign"></i></a></td>
+                        <td><?=$matches[8]?></td>
+                        <td><a class="btn btn-small" rel="tooltip" data-placement="right" title="view" href="./bench.php?benchmark=<?=$benchmark?>"><i class="icon-info-sign"></i> </a></td>
                       </tr>
-                      <?php 
-                    }
-                    else
-                    {
-                      $unparsable_directories[] = $benchmark;
-                    }
-                  } 
-                  ?>
-                  </tbody>
-                </table>                  
+                      <?php
+                        }
+                        else
+                        {
+                          $unparsable_directories[] = $benchmark;
+                        }
+                      }
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="span12">
-                <?php 
-                if(! empty($unparsable_directories)){
-                  ?>
+              <div class="row">
+                <div class="span12">
+                  <?php
+                  if(! empty($unparsable_directories)){
+                    ?>
                   <div class="alert alert-block">
                     <button type="button" class="close" data-dismiss="alert">×</button>
                     <h4>Warning!</h4>
+                    <?php
+                    foreach( $unparsable_directories as $directory) {
+                      echo "Cannot parse : ".$directory."<br/>";
+                    }
+                    ?>
+                  </div>
                   <?php
-                  foreach( $unparsable_directories as $directory) {
-                    echo "Cannot parse : ".$directory."<br/>";
-                  }              
+                  }
                   ?>
-                </div>              
-                  <?php
-                }
-                ?>              
+                </div>
               </div>
             </div>
           </div>
-        </div>        
+        </div>
       </div>
+      <!-- /container -->
     </div>
-    <!-- /container -->
-
   </div>
-</div>
-
-<!-- Footer
+  <!-- Footer
 ================================================== -->
-<div id="footer">Copyright © 2000-2012. All rights Reserved, eXo Platform SAS.</div>
+  <div id="footer">Copyright © 2000-2012. All rights Reserved, eXo Platform SAS.</div>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
 <!-- DataTables -->
-<script src="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.3/jquery.dataTables.min.js" type="text/javascript"></script>  
+<script src="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.3/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 <script type="text/javascript">
   /* Various customizations especially for bootstrap compatibility */
@@ -264,5 +260,5 @@
           "sDom":"<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>"
         });
   });
-</script>  
+</script>
 </html>
