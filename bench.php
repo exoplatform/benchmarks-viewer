@@ -28,7 +28,7 @@ $benchmark = $_GET['benchmark'];
       <div class="container-fluid">
         <div class="row-fluid">
           <div class="span3 left-sidebar">
-            <ul class="nav nav-list left-sidenav">
+            <ul class="nav nav-list left-sidenav" data-spy="affix" data-offset-top="0" id="left-sidenav">
               <li><a href="#ResponseTimesOverTime"><i class="icon-chevron-right"></i> Response Times Over Time </a></li>
               <li><a href="#ResponseTimesVsThreads"><i class="icon-chevron-right"></i> Response Times Vs Threads </a></li>
               <li><a href="#ThreadsStateOverTime"><i class="icon-chevron-right"></i> Threads State Over Time </a></li>
@@ -40,7 +40,7 @@ $benchmark = $_GET['benchmark'];
           <div class="span9">
             <section id="ResponseTimesOverTime">
               <div class="page-header">
-                <h1>Response Times Over Time</h1>
+                <h2>Response Times Over Time</h2>
               </div>
               <div class="row-fluid">
                 <div class="span6">
@@ -53,7 +53,7 @@ $benchmark = $_GET['benchmark'];
             </section>
             <section id="ResponseTimesVsThreads">
               <div class="page-header">
-                <h1>Response Times Vs Threads</h1>
+                <h2>Response Times Vs Threads</h2>
               </div>
               <div class="row-fluid">
                 <div class="span6">
@@ -66,7 +66,7 @@ $benchmark = $_GET['benchmark'];
             </section>
             <section id="ThreadsStateOverTime">
               <div class="page-header">
-                <h1>Threads State Over Time</h1>
+                <h2>Threads State Over Time</h2>
               </div>
               <div class="row-fluid">
                 <div class="span12">
@@ -76,7 +76,7 @@ $benchmark = $_GET['benchmark'];
             </section>
             <section id="ThroughputOverTime">
               <div class="page-header">
-                <h1>Throughput Over Time</h1>
+                <h2>Throughput Over Time</h2>
               </div>
               <div class="row-fluid">
                 <div class="span12">
@@ -86,7 +86,7 @@ $benchmark = $_GET['benchmark'];
             </section>
             <section id="ThroughputVsThreads">
               <div class="page-header">
-                <h1>Throughput Vs Threads</h1>
+                <h2>Throughput Vs Threads</h2>
               </div>
               <div class="row-fluid">
                 <div class="span12">
@@ -96,7 +96,7 @@ $benchmark = $_GET['benchmark'];
             </section>
             <section id="TransactionsPerSecond">
               <div class="page-header">
-                <h1>Transactions Per Second</h1>
+                <h2>Transactions Per Second</h2>
               </div>
               <div class="row-fluid">
                 <div class="span6">
@@ -117,20 +117,5 @@ $benchmark = $_GET['benchmark'];
   <div id="footer">Copyright ¬© 2000-2012. All rights Reserved, eXo Platform SAS.</div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
   <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
-  <script type="text/javascript">
-
-!function ($) {
-
-  $(function(){
-
-    var $window = $(window)
-
-    // side bar
-    $('.left-sidenav').affix({
-      offset: { top: 0 , bottom: 0 }
-    })
-  })
-}(window.jQuery)
-  </script>
 </body>
 </html>
