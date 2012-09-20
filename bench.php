@@ -31,7 +31,7 @@ function getImagesList ($directory) {
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
   <!-- navbar
 ================================================== -->
   <div id="navbar" class="navbar navbar-fixed-top" data-dropdown="dropdown">
@@ -50,7 +50,7 @@ function getImagesList ($directory) {
       <div class="container-fluid">
         <div class="content">
           <div class="row-fluid">
-            <div class="span10 offset1">
+            <div class="span12">
               <ul class="breadcrumb">
                 <li><a href="./index.php">Benchmarks</a> <span class="divider">/</span></li>
                 <li class="active"><?=$benchmark?></li>
@@ -58,8 +58,8 @@ function getImagesList ($directory) {
             </div>
           </div>
           <div class="row-fluid">
-            <div class="span2">
-              <ul class="nav nav-list">
+            <div class="span2 bs-docs-sidebar">
+              <ul class="nav nav-list bs-docs-sidenav">
                 <?php
                 $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
                 foreach( $images as $image) {
@@ -75,13 +75,12 @@ function getImagesList ($directory) {
               $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
               foreach( $images as $image) {
                 ?>
-              <section id="dropdowns">
+              <section id="<?=$image?>">
                 <div class="page-header">
-                  <h1>Dropdown menus</h1>
+                  <h1>
+                    <?=$image?>
+                  </h1>
                 </div>
-                <h2>
-                  <?=$image?>
-                </h2>
                 <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="<?=$image?>" />
               </section>
               <?php

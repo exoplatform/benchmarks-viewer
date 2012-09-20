@@ -160,7 +160,7 @@ $benchmarksURL=$_SERVER['BENCHMARKS_URL'];
       <div class="container-fluid">
         <div class="content">
           <div class="row-fluid">
-            <div class="span10 offset1">
+            <div class="span12">
               <ul class="breadcrumb">
                 <li class="active">Benchmarks</li>
               </ul>
