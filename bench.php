@@ -56,16 +56,19 @@ function getImagesList ($directory) {
           <div class="row-fluid">
             <div class="span10 offset1">
               <div class="row-fluid">
-                <div class="span12">
+                <div class="span4"></div>
+                <div class="span8">
                   <ul class="thumbnails">
                     <?php
                     $images = getImagesList($_SERVER['BENCHMARKS_DIR']."/".$benchmark."/jmeter-results");
                     foreach( $images as $image) {
                       ?>
-                    <li class="span4">
+                    <li class="span8">
                       <div class="thumbnail">
                         <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="">
-                        <h3><?=$image?></h3>
+                        <h3>
+                          <?=$image?>
+                        </h3>
                         <p>Thumbnail caption...</p>
                       </div>
                     </li>
