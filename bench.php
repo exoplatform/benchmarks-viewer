@@ -58,8 +58,8 @@ function getImagesList ($directory) {
             </div>
           </div>
           <div class="row-fluid">
-            <div class="span3">
-              <ul class="nav nav-list bs-docs-sidenav" id="sidenav">
+            <div class="span3 sidenav">
+              <ul class="nav nav-list sidenav">
                 <?php
                 $images = getImagesList($benchmarksDirectory."/".$benchmark."/jmeter-results");
                 foreach( $images as $image) {
