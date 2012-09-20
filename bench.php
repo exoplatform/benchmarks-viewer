@@ -40,7 +40,7 @@ $benchmark = $_GET['benchmark'];
           <div class="span9">
             <section id="ResponseTimesOverTime">
               <div class="page-header">
-                <legend>Response Times Over Time</legend>
+                <h2>Response Times Over Time</h2>
               </div>
               <div class="row-fluid">
                 <div class="span12">
@@ -67,57 +67,112 @@ $benchmark = $_GET['benchmark'];
             </section>
             <section id="ResponseTimesVsThreads">
               <div class="page-header">
-                <legend>Response Times Vs Threads</legend>
-              </div>
-              <div class="row-fluid">
-                <div class="span6">
-                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Aggregated.png" alt="bench-ResponseTimesVsThreads_Aggregated.png" />
-                </div>
-                <div class="span6">
-                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Details.png" alt="bench-ResponseTimesVsThreads_Details.png" />
-                </div>
-              </div>
-            </section>
-            <section id="ThreadsStateOverTime">
-              <div class="page-header">
-                <legend>Threads State Over Time</legend>
+                <h2>Response Times Vs Threads</h2>
               </div>
               <div class="row-fluid">
                 <div class="span12">
-                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThreadsStateOverTime_Aggregated.png" alt="bench-ThreadsStateOverTime_Aggregated.png" />
+                  <ul class="thumbnails">
+                    <li class="span6">
+                      <div class="thumbnail">
+                        <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Aggregated.png"><img
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Aggregated.png" alt="Response Times Vs Threads Aggregated"> </a>
+                        <h3>Response Times Vs Threads Aggregated</h3>
+                        <p>Thumbnail caption...</p>
+                      </div>
+                    </li>
+                    <li class="span6">
+                      <div class="thumbnail">
+                        <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Details.png"><img
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Details.png" alt="Response Times Vs Threads Details"> </a>
+                        <h3>Response Times Vs Threads Details</h3>
+                        <p>Thumbnail caption...</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+            
+            </section>
+            <section id="ThreadsStateOverTime">
+              <div class="page-header">
+                <h2>Threads State Over Time</h2>
+              </div>
+              <div class="row-fluid">
+                <div class="span12">
+                  <ul class="thumbnails">
+                    <li class="span12">
+                      <div class="thumbnail">
+                        <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThreadsStateOverTime_Aggregated.png"><img
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThreadsStateOverTime_Aggregated.png" alt="Threads State Over Time Aggregated"> </a>
+                        <h3>Threads State Over Time Aggregated</h3>
+                        <p>Thumbnail caption...</p>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </section>
             <section id="ThroughputOverTime">
               <div class="page-header">
-                <legend>Throughput Over Time</legend>
+                <h2>Throughput Over Time</h2>
               </div>
               <div class="row-fluid">
                 <div class="span12">
-                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputOverTime_Details.png" alt="bench-ThroughputOverTime_Details.png" />
+                  <ul class="thumbnails">
+                    <li class="span12">
+                      <div class="thumbnail">
+                        <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputOverTime_Details.png"><img
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputOverTime_Details.png" alt="Throughput Over Time Details"> </a>
+                        <h3>Throughput Over Time Details</h3>
+                        <p>Thumbnail caption...</p>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </section>
             <section id="ThroughputVsThreads">
               <div class="page-header">
-                <legend>Throughput Vs Threads</legend>
+                <h2>Throughput Vs Threads</h2>
               </div>
               <div class="row-fluid">
                 <div class="span12">
-                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputVsThreads_Details.png" alt="bench-ThroughputVsThreads_Details.png" />
+                  <ul class="thumbnails">
+                    <li class="span12">
+                      <div class="thumbnail">
+                        <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputVsThreads_Details.png"><img
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputVsThreads_Details.png" alt="Throughput Vs Threads Details"> </a>
+                        <h3>Throughput Vs Threads Details</h3>
+                        <p>Thumbnail caption...</p>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </section>
             <section id="TransactionsPerSecond">
               <div class="page-header">
-                <legend>Transactions Per Second</legend>
+                <h2>Transactions Per Second</h2>
               </div>
               <div class="row-fluid">
-                <div class="span6">
-                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Aggregated.png" alt="bench-TransactionsPerSecond_Aggregated.png" />
-                </div>
-                <div class="span6">
-                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Details.png" alt="bench-TransactionsPerSecond_Details.png" />
+                <div class="span12">
+                  <ul class="thumbnails">
+                    <li class="span6">
+                      <div class="thumbnail">
+                        <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Aggregated.png"><img
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Aggregated.png" alt="Transactions Per Second Aggregated"> </a>
+                        <h3>Transactions Per Second Aggregated</h3>
+                        <p>Thumbnail caption...</p>
+                      </div>
+                    </li>
+                    <li class="span6">
+                      <div class="thumbnail">
+                        <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Details.png"><img
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Details.png" alt="Transactions Per Second Details"> </a>
+                        <h3>Transactions Per Second Details</h3>
+                        <p>Thumbnail caption...</p>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </section>
