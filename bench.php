@@ -40,20 +40,34 @@ $benchmark = $_GET['benchmark'];
           <div class="span9">
             <section id="ResponseTimesOverTime">
               <div class="page-header">
-                <h2>Response Times Over Time</h2>
+                <legend>Response Times Over Time</legend>
               </div>
               <div class="row-fluid">
-                <div class="span6">
-                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Aggregated.png" alt="bench-ResponseTimesOverTime_Aggregated.png" />
-                </div>
-                <div class="span6">
-                  <img src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Details.png" alt="bench-ResponseTimesOverTime_Details.png" />
+                <div class="span12">
+                  <ul class="thumbnails">
+                    <li class="span6">
+                      <div class="thumbnail">
+                        <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Aggregated.png"><img
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Aggregated.png" alt="Response Times Over Time Aggregated"> </a>
+                        <h3>Response Times Over Time Aggregated</h3>
+                        <p>Thumbnail caption...</p>
+                      </div>
+                    </li>
+                    <li class="span6">
+                      <div class="thumbnail">
+                        <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Details.png"><img
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Details.png" alt="Response Times Over Time Details"> </a>
+                        <h3>Response Times Over Time Details</h3>
+                        <p>Thumbnail caption...</p>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </section>
             <section id="ResponseTimesVsThreads">
               <div class="page-header">
-                <h2>Response Times Vs Threads</h2>
+                <legend>Response Times Vs Threads</legend>
               </div>
               <div class="row-fluid">
                 <div class="span6">
@@ -66,7 +80,7 @@ $benchmark = $_GET['benchmark'];
             </section>
             <section id="ThreadsStateOverTime">
               <div class="page-header">
-                <h2>Threads State Over Time</h2>
+                <legend>Threads State Over Time</legend>
               </div>
               <div class="row-fluid">
                 <div class="span12">
@@ -76,7 +90,7 @@ $benchmark = $_GET['benchmark'];
             </section>
             <section id="ThroughputOverTime">
               <div class="page-header">
-                <h2>Throughput Over Time</h2>
+                <legend>Throughput Over Time</legend>
               </div>
               <div class="row-fluid">
                 <div class="span12">
@@ -86,7 +100,7 @@ $benchmark = $_GET['benchmark'];
             </section>
             <section id="ThroughputVsThreads">
               <div class="page-header">
-                <h2>Throughput Vs Threads</h2>
+                <legend>Throughput Vs Threads</legend>
               </div>
               <div class="row-fluid">
                 <div class="span12">
@@ -96,7 +110,7 @@ $benchmark = $_GET['benchmark'];
             </section>
             <section id="TransactionsPerSecond">
               <div class="page-header">
-                <h2>Transactions Per Second</h2>
+                <legend>Transactions Per Second</legend>
               </div>
               <div class="row-fluid">
                 <div class="span6">
