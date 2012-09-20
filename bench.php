@@ -26,6 +26,8 @@ function getImagesList ($directory) {
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" type="text/css" rel="stylesheet" media="all">
 <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/spacelab/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
 <link href="./main.css" type="text/css" rel="stylesheet" media="all" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 </head>
 <body>
   <!-- navbar
@@ -65,34 +67,33 @@ function getImagesList ($directory) {
                       ?>
                     <li class="span8">
                       <div class="thumbnail">
-                        <a data-toggle="modal" href='<?="#".$image?>'>
-                        <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt=""/>
+                        <a data-toggle="modal" href='<?="#".$image?>'> <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="" />
                         </a>
                         <h3>
                           <?=$image?>
                         </h3>
                         <p>Thumbnail caption...</p>
                       </div>
-                      <div class="modal fade" id="<?=$image?>">
-                        <div class="modal-header">
-                          <a class="close" data-dismiss="modal">x</a>
-                          <h3>
-                            <?=$image?>
-                          </h3>
-                        </div>
-                        <div class="modal-body">
-                          <div class="row-fluid">
-                            <ul class="thumbnails">
-                              <li class="span12">
-                                <div class="thumbnail">
-                                  <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt=""/>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div> ·
                     </li>
+                    <div class="modal fade" id="<?=$image?>">
+                      <div class="modal-header">
+                        <a class="close" data-dismiss="modal">x</a>
+                        <h3>
+                          <?=$image?>
+                        </h3>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row-fluid">
+                          <ul class="thumbnails">
+                            <li class="span12">
+                              <div class="thumbnail">
+                                <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="" />
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                     <?php
                     }
                     ?>
@@ -110,6 +111,4 @@ function getImagesList ($directory) {
 ================================================== -->
   <div id="footer">Copyright ¬© 2000-2012. All rights Reserved, eXo Platform SAS.</div>
 </body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 </html>
