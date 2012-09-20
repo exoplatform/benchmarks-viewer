@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <?php
 $benchmark = $_GET['benchmark'];
+function getImagesList ($directory) {
+  // create an array to hold the list
+  $results = array();
+  // create a handler for the directory
+  $handler = opendir($directory);
+  // open directory and walk through the filenames
+  while ($file = readdir($handler)) {
+    // if file isn't this directory or its parent, add it to the results
+    if (($file != ".") && ($file != "..") && (filetype($directory."/".$file) == "file") && preg_match("/.*\.png/", $file)) {
+      $results[] = $file;
+    }
+  }
+  // tidy up: close the handler
+  closedir($handler);
+  // done!
+  return $results;
+}
 ?>
 <html>
 <head>
@@ -39,7 +56,24 @@ $benchmark = $_GET['benchmark'];
           <div class="row-fluid">
             <div class="span10 offset1">
               <div class="row-fluid">
-                <div class="span12"></div>
+                <div class="span12">
+                  <ul class="thumbnails">
+                    <?php
+                    $images = getImagesList($_SERVER['BENCHMARKS_DIR']."/".$benchmark."/jmeter-results");
+                    foreach( $images as $image) {
+                      ?>
+                    <li class="span4">
+                      <div class="thumbnail">
+                        <img src="https://qaf-reports.exoplatform.org/archives/gateinuxp/<?=$benchmark?>/jmeter-results/<?=$image?>" alt="">
+                        <h3><?=$image?></h3>
+                        <p>Thumbnail caption...</p>
+                      </div>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
