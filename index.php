@@ -24,15 +24,18 @@
 ================================================== -->
   <div id="wrap">
     <div id="main">
-      <div class="container-fluid">
+      <div class="container">
         <div class="content">
-          <ul class="breadcrumb">
-            <li class="active">Benchmarks</li>
-          </ul>
           <div class="row-fluid">
-            <div class="span1"></div>
-            <div class="span10">
-              <div class="row">
+            <div class="span10 offset1">
+              <ul class="breadcrumb">
+                <li class="active">Benchmarks</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row-fluid">
+            <div class="span10 offset1">
+              <div class="row-fluid">
                 <div class="span12">
                   <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
                     <thead>
@@ -102,7 +105,7 @@
                   </table>
                 </div>
               </div>
-              <div class="row">
+              <div class="row-fluid">
                 <div class="span12">
                   <?php
                   if(! empty($unparsable_directories)){
