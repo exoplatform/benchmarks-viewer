@@ -41,6 +41,7 @@ header("Pragma: no-cache"); // HTTP/1.0
         <div class="row-fluid">
           <div class="span3 left-sidebar">
             <ul class="nav nav-list left-sidenav" data-spy="affix" data-offset-top="0" id="left-sidenav">
+              <li><a href="#Info"><i class="icon-chevron-right"></i> Informations </a></li>
               <li><a href="#ResponseTimesOverTime"><i class="icon-chevron-right"></i> Response Times Over Time </a></li>
               <li><a href="#ResponseTimesVsThreads"><i class="icon-chevron-right"></i> Response Times Vs Threads </a></li>
               <li><a href="#ThreadsStateOverTime"><i class="icon-chevron-right"></i> Threads State Over Time </a></li>
@@ -50,6 +51,51 @@ header("Pragma: no-cache"); // HTTP/1.0
             </ul>
           </div>
           <div class="span9">
+            <section id="Info">
+              <div class="page-header">
+                <h2>Benchmark</h2>
+              </div>
+              <?php 
+              function displayDate ($date_as_string) {
+              	$date = DateTime::createFromFormat('Ymd-His', $date_as_string);
+              	return $date->format('Y/M/d - H:i:s T');
+              }              
+              $matches = array();
+              if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
+              {
+              	?>
+              <table>
+                <tr>
+                  <th>End Date (UTC)</th>
+                  <td><?=displayDate($matches[1]."-".$matches[2])?></td>
+                </tr>
+                <tr>
+                  <th>Lab</th>
+                  <td><?=$matches[3]?></td>
+                </tr>
+                <tr>
+                  <th>Product</th>
+                  <td><?=$matches[4]?></td>
+                </tr>
+                <tr>
+                  <th>AppServer</th>
+                  <td><?=$matches[5]?></td>
+                </tr>
+                <tr>
+                  <th>Scenario</th>
+                  <td><?=$matches[6]?></td>
+                </tr>
+                <tr>
+                  <th>VUs</th>
+                  <td><?=$matches[7]?></td>
+                </tr>
+                <tr>
+                  <th>Nodes</th>
+                  <td><?=$matches[8]?></td>
+                </tr>
+              </table>
+              <?php }?>
+            </section>
             <section id="ResponseTimesOverTime">
               <div class="page-header">
                 <h2>Response Times Over Time</h2>
@@ -60,22 +106,22 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <li class="span6">
                       <div class="thumbnail">
                         <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Aggregated.png"><img
-                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Aggregated.png" alt="Response Times Over Time Aggregated"
-                        > </a>
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Aggregated.png" alt="Response Times Over Time Aggregated"> </a>
                         <h3>Response Times Over Time Aggregated</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a
+                            href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
                     <li class="span6">
                       <div class="thumbnail">
                         <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Details.png"><img
-                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Details.png" alt="Response Times Over Time Details"
-                        > </a>
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Details.png" alt="Response Times Over Time Details"> </a>
                         <h3>Response Times Over Time Details</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesOverTime_Details.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Details.csv"><i class="icon-chevron-right"></i> Download</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesOverTime_Details.csv"><i class="icon-chevron-right"></i> View</a><a
+                            href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Details.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -93,28 +139,28 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <li class="span6">
                       <div class="thumbnail">
                         <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Aggregated.png"><img
-                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Aggregated.png" alt="Response Times Vs Threads Aggregated"
-                        > </a>
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Aggregated.png" alt="Response Times Vs Threads Aggregated"> </a>
                         <h3>Response Times Vs Threads Aggregated</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesVsThreads_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesVsThreads_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a
+                            href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
                     <li class="span6">
                       <div class="thumbnail">
                         <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Details.png"><img
-                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Details.png" alt="Response Times Vs Threads Details"
-                        > </a>
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Details.png" alt="Response Times Vs Threads Details"> </a>
                         <h3>Response Times Vs Threads Details</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesVsThreads_Details.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Details.csv"><i class="icon-chevron-right"></i> Download</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesVsThreads_Details.csv"><i class="icon-chevron-right"></i> View</a><a
+                            href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Details.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
                   </ul>
                 </div>
-
+            
             </section>
             <section id="ThreadsStateOverTime">
               <div class="page-header">
@@ -126,11 +172,11 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <li class="span12">
                       <div class="thumbnail">
                         <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThreadsStateOverTime_Aggregated.png"><img
-                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThreadsStateOverTime_Aggregated.png" alt="Threads State Over Time Aggregated"
-                        > </a>
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThreadsStateOverTime_Aggregated.png" alt="Threads State Over Time Aggregated"> </a>
                         <h3>Threads State Over Time Aggregated</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThreadsStateOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThreadsStateOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThreadsStateOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a
+                            href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThreadsStateOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -148,11 +194,11 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <li class="span12">
                       <div class="thumbnail">
                         <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputOverTime_Details.png"><img
-                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputOverTime_Details.png" alt="Throughput Over Time Details"
-                        > </a>
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputOverTime_Details.png" alt="Throughput Over Time Details"> </a>
                         <h3>Throughput Over Time Details</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThroughputOverTime_Details.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputOverTime_Details.csv"><i class="icon-chevron-right"></i> Download</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThroughputOverTime_Details.csv"><i class="icon-chevron-right"></i> View</a><a
+                            href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputOverTime_Details.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -170,11 +216,11 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <li class="span12">
                       <div class="thumbnail">
                         <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputVsThreads_Details.png"><img
-                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputVsThreads_Details.png" alt="Throughput Vs Threads Details"
-                        > </a>
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputVsThreads_Details.png" alt="Throughput Vs Threads Details"> </a>
                         <h3>Throughput Vs Threads Details</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThroughputVsThreads_Details.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputVsThreads_Details.csv"><i class="icon-chevron-right"></i> Download</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThroughputVsThreads_Details.csv"><i class="icon-chevron-right"></i> View</a><a
+                            href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputVsThreads_Details.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -192,22 +238,22 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <li class="span6">
                       <div class="thumbnail">
                         <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Aggregated.png"><img
-                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Aggregated.png" alt="Transactions Per Second Aggregated"
-                        > </a>
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Aggregated.png" alt="Transactions Per Second Aggregated"> </a>
                         <h3>Transactions Per Second Aggregated</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-TransactionsPerSecond_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-TransactionsPerSecond_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a
+                            href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
                     <li class="span6">
                       <div class="thumbnail">
                         <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Details.png"><img
-                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Details.png" alt="Transactions Per Second Details"
-                        > </a>
+                          src="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Details.png" alt="Transactions Per Second Details"> </a>
                         <h3>Transactions Per Second Details</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-TransactionsPerSecond_Details.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Details.csv"><i class="icon-chevron-right"></i> Download</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-TransactionsPerSecond_Details.csv"><i class="icon-chevron-right"></i> View</a><a
+                            href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Details.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>

@@ -172,10 +172,10 @@ header("Pragma: no-cache"); // HTTP/1.0
           <div class="span10 offset1">
             <div class="row-fluid">
               <div class="span12">
-                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="benchmarks">
+                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="benchmarks">
                   <thead>
                     <tr>
-                      <th>Date</th>
+                      <th>End Date (UTC)</th>
                       <th>Lab</th>
                       <th>Product</th>
                       <th>AppServer</th>
