@@ -57,7 +57,7 @@ header("Pragma: no-cache"); // HTTP/1.0
               </div>
               <div class="row-fluid">
                 <div class="span6">
-                  <div class="well">
+                  <div class="well-large">
                     <?php 
                     function displayDate ($date_as_string) {
               	$date = DateTime::createFromFormat('Ymd-His', $date_as_string);
@@ -127,7 +127,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                   </div>
                 </div>
                 <div class="span6">
-                  <div class="well">
+                  <div class="well-large">
                     <?php 
                     function viewinfo($filename) {
                 	$fp = fopen($filename,"r");
