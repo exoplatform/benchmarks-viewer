@@ -70,7 +70,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <div class="span3">
                       <strong>End Date (UTC)</strong>
                     </div>
-                    <div class="span9">
+                    <div class="span6">
                       <?=displayDate($matches[1]."-".$matches[2])?>
                     </div>
                   </div>
@@ -78,7 +78,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <div class="span3">
                       <strong>Lab</strong>
                     </div>
-                    <div class="span9">
+                    <div class="span6">
                       <?=$matches[3]?>
                     </div>
                   </div>
@@ -86,7 +86,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <div class="span3">
                       <strong>Product</strong>
                     </div>
-                    <div class="span9">
+                    <div class="span6">
                       <?=$matches[4]?>
                     </div>
                   </div>
@@ -94,7 +94,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <div class="span3">
                       <strong>AppServer</strong>
                     </div>
-                    <div class="span9">
+                    <div class="span6">
                       <?=$matches[5]?>
                     </div>
                   </div>
@@ -102,7 +102,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <div class="span3">
                       <strong>Scenario</strong>
                     </div>
-                    <div class="span9">
+                    <div class="span6">
                       <?=$matches[6]?>
                     </div>
                   </div>
@@ -110,7 +110,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <div class="span3">
                       <strong>VUs</strong>
                     </div>
-                    <div class="span9">
+                    <div class="span6">
                       <?=$matches[7]?>
                     </div>
                   </div>
@@ -118,7 +118,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                     <div class="span3">
                       <strong>Nodes</strong>
                     </div>
-                    <div class="span9">
+                    <div class="span6">
                       <?=$matches[8]?>
                     </div>
                   </div>
@@ -130,8 +130,8 @@ header("Pragma: no-cache"); // HTTP/1.0
                 	$fp = fopen($filename,"r");
                 	$file = fread($fp,65535);
                 	$replaced = eregi_replace(":", "</strong></div><div class='span6'>", $file);
-                	$replaced2 = eregi_replace("\n", "</div></div><div class='row'><div class='span6'><strong>", $replaced);
-                	$replaced3 = eregi_replace("\r", "</div></div><div class='row'><div class='span6'><strong>", $replaced2);
+                	$replaced2 = eregi_replace("\n", "</div></div><div class='row'><div class='span3'><strong>", $replaced);
+                	$replaced3 = eregi_replace("\r", "</div></div><div class='row'><div class='span3'><strong>", $replaced2);
                 	fclose($fp);
                 	return substr("<div class='row'><div class='span6'><strong>".$replaced3,0,-44);
                 }
