@@ -64,7 +64,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                         > </a>
                         <h3>Response Times Over Time Aggregated</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> View</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -75,7 +75,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                         > </a>
                         <h3>Response Times Over Time Details</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesOverTime_Details.csv"><i class="icon-chevron-right"></i> View</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesOverTime_Details.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesOverTime_Details.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -97,7 +97,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                         > </a>
                         <h3>Response Times Vs Threads Aggregated</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesVsThreads_Aggregated.csv"><i class="icon-chevron-right"></i> View</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesVsThreads_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -108,7 +108,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                         > </a>
                         <h3>Response Times Vs Threads Details</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesVsThreads_Details.csv"><i class="icon-chevron-right"></i> View</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ResponseTimesVsThreads_Details.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ResponseTimesVsThreads_Details.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -130,7 +130,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                         > </a>
                         <h3>Threads State Over Time Aggregated</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThreadsStateOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> View</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThreadsStateOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThreadsStateOverTime_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -152,7 +152,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                         > </a>
                         <h3>Throughput Over Time Details</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThroughputOverTime_Details.csv"><i class="icon-chevron-right"></i> View</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThroughputOverTime_Details.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputOverTime_Details.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -174,7 +174,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                         > </a>
                         <h3>Throughput Vs Threads Details</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThroughputVsThreads_Details.csv"><i class="icon-chevron-right"></i> View</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-ThroughputVsThreads_Details.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-ThroughputVsThreads_Details.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -196,7 +196,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                         > </a>
                         <h3>Transactions Per Second Aggregated</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-TransactionsPerSecond_Aggregated.csv"><i class="icon-chevron-right"></i> View</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-TransactionsPerSecond_Aggregated.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
@@ -207,7 +207,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                         > </a>
                         <h3>Transactions Per Second Details</h3>
                         <p>
-                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-TransactionsPerSecond_Details.csv"><i class="icon-chevron-right"></i> View</a>
+                          CSV : <a href="csv.php?benchmark=<?=$benchmark?>&file=bench-TransactionsPerSecond_Details.csv"><i class="icon-chevron-right"></i> View</a><a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-TransactionsPerSecond_Details.csv"><i class="icon-chevron-right"></i> Download</a>
                         </p>
                       </div>
                     </li>
