@@ -56,7 +56,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                 <h2>Informations</h2>
               </div>
               <div class="row-fluid">
-                <div class="span5">
+                <div class="span6">
                   <?php 
                   function displayDate ($date_as_string) {
               	$date = DateTime::createFromFormat('Ymd-His', $date_as_string);
@@ -124,7 +124,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                   </div>
                   <?php }?>
                 </div>
-                <div class="span5">
+                <div class="span6">
                   <?php 
                   function viewinfo($filename) {
                 	$fp = fopen($filename,"r");
@@ -137,6 +137,25 @@ header("Pragma: no-cache"); // HTTP/1.0
                 }
                 ?>
                   <?=viewinfo($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.info.txt")?>
+                </div>
+              </div>
+              <?php 
+              function viewcsv($filename) {
+              	$fp = fopen($filename,"r");
+              	$file = ";" . fread($fp,65535);
+              	$replaced = eregi_replace(";", "<td>", $file);
+              	$replaced2 = eregi_replace("\n", "<tr><td>", $replaced);
+              	$replaced3 = eregi_replace("\r", "<tr><td>", $replaced2);
+              	fclose($fp);
+              	return $replaced3;
+              }
+              ?>
+              <div class="row-fluid">
+                <div class="span12">
+                  <h2>bench.csv</h2>
+                  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover">
+                    <?=viewcsv($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.csv")?>
+                  </table>
                 </div>
               </div>
             </section>
