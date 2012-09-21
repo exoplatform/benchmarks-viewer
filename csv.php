@@ -19,8 +19,8 @@ header("Pragma: no-cache"); // HTTP/1.0
 */
 function viewlog($filename) {
   $fp = fopen($filename,"r");
-  $file = "," . fread($fp,65535);
-  $replaced = eregi_replace(",", "<td>", $file);
+  $file = ";" . fread($fp,65535);
+  $replaced = eregi_replace(";", "<td>", $file);
   $replaced2 = eregi_replace("\n", "<tr><td>", $replaced);
   $replaced3 = eregi_replace("\r", "<tr><td>", $replaced2);
   fclose($fp);
