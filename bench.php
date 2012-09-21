@@ -129,9 +129,9 @@ header("Pragma: no-cache"); // HTTP/1.0
                   function viewinfo($filename) {
                 	$fp = fopen($filename,"r");
                 	$file = fread($fp,65535);
-                	$replaced = eregi_replace(":", "</strong></div><div class='span6'>", $file);
-                	$replaced2 = eregi_replace("\n", "</div></div><div class='row'><div class='span3'><strong>", $replaced);
-                	$replaced3 = eregi_replace("\r", "</div></div><div class='row'><div class='span3'><strong>", $replaced2);
+                	$replaced = eregi_replace(":", "</strong></div><div class='span3'>", $file);
+                	$replaced2 = eregi_replace("\n", "</div></div><div class='row'><div class='span6'><strong>", $replaced);
+                	$replaced3 = eregi_replace("\r", "</div></div><div class='row'><div class='span6'><strong>", $replaced2);
                 	fclose($fp);
                 	return substr("<div class='row'><div class='span6'><strong>".$replaced3,0,-44);
                 }
