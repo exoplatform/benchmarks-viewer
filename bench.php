@@ -64,43 +64,43 @@ header("Pragma: no-cache"); // HTTP/1.0
               if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
               {
               	?>
-              <div class="row-fluid wheel">
-                <div class="span6">End Date (UTC)</div>
-                <div class="span6">
+              <div class="row">
+                <div class="span2">End Date (UTC)</div>
+                <div class="span2">
                   <?=displayDate($matches[1]."-".$matches[2])?>
                 </div>
               </div>
-              <div class="row-fluid">
-                <div class="span6">Lab</div>
-                <div class="span6" <?=$matches[3]?>></div>
+              <div class="row">
+                <div class="span2">Lab</div>
+                <div class="span2" <?=$matches[3]?>></div>
               </div>
-              <div class="row-fluid">
-                <div class="span6">Product</div>
-                <div class="span6">
+              <div class="row">
+                <div class="span2">Product</div>
+                <div class="span2">
                   <?=$matches[4]?>
                 </div>
               </div>
-              <div class="row-fluid">
-                <div class="span6">AppServer</div>
-                <div class="span6">
+              <div class="row">
+                <div class="span2">AppServer</div>
+                <div class="span2">
                   <?=$matches[5]?>
                 </div>
               </div>
-              <div class="row-fluid">
-                <div class="span6">Scenario</div>
-                <div class="span6">
+              <div class="row">
+                <div class="span2">Scenario</div>
+                <div class="span2">
                   <?=$matches[6]?>
                 </div>
               </div>
-              <div class="row-fluid">
-                <div class="span6">VUs</div>
-                <div class="span6">
+              <div class="row">
+                <div class="span2">VUs</div>
+                <div class="span2">
                   <?=$matches[7]?>
                 </div>
               </div>
-              <div class="row-fluid">
-                <div class="span6">Nodes</div>
-                <div class="span6">
+              <div class="row">
+                <div class="span2">Nodes</div>
+                <div class="span2">
                   <?=$matches[8]?>
                 </div>
               </div>
