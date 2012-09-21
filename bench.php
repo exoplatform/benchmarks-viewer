@@ -55,8 +55,10 @@ header("Pragma: no-cache"); // HTTP/1.0
               <div class="page-header">
                 <h2>Benchmark</h2>
               </div>
-              <?php 
-              function displayDate ($date_as_string) {
+              <div class="row-fluid">
+                <div class="span6 well">
+                  <?php 
+                  function displayDate ($date_as_string) {
               	$date = DateTime::createFromFormat('Ymd-His', $date_as_string);
               	return $date->format('Y/M/d - H:i:s');
               }
@@ -64,63 +66,79 @@ header("Pragma: no-cache"); // HTTP/1.0
               if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
               {
               	?>
-              <div class="row">
-                <div class="span2">
-                  <strong>End Date (UTC)</strong>
+                  <div class="row">
+                    <div class="span2">
+                      <strong>End Date (UTC)</strong>
+                    </div>
+                    <div class="span2">
+                      <?=displayDate($matches[1]."-".$matches[2])?>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="span1">
+                      <strong>Lab</strong>
+                    </div>
+                    <div class="span2">
+                      <?=$matches[3]?>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="span1">
+                      <strong>Product</strong>
+                    </div>
+                    <div class="span2">
+                      <?=$matches[4]?>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="span1">
+                      <strong>AppServer</strong>
+                    </div>
+                    <div class="span2">
+                      <?=$matches[5]?>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="span1">
+                      <strong>Scenario</strong>
+                    </div>
+                    <div class="span2">
+                      <?=$matches[6]?>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="span1">
+                      <strong>VUs</strong>
+                    </div>
+                    <div class="span2">
+                      <?=$matches[7]?>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="span1">
+                      <strong>Nodes</strong>
+                    </div>
+                    <div class="span2">
+                      <?=$matches[8]?>
+                    </div>
+                  </div>
+                  <?php }?>
                 </div>
-                <div class="span2">
-                  <?=displayDate($matches[1]."-".$matches[2])?>
+                <div class="span6 well">
+                <?php 
+                function viewinfo($filename) {
+                	$fp = fopen($filename,"r");
+                	$file = fread($fp,65535);
+                	$replaced = eregi_replace(":", "</strong></div><div class='span2'>", $file);
+                	$replaced2 = eregi_replace("\n", "</div></div><div class='row'><div class='span1'><strong>", $replaced);
+                	$replaced3 = eregi_replace("\r", "</div></div><div class='row'><div class='span1'><strong>", $replaced2);
+                	fclose($fp);
+                	return substr("<div class='row'><div class='span1'><strong>".$replaced3,0,-44);
+                }                
+                ?>
+                <?=viewinfo($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.info.txt")?>
                 </div>
               </div>
-              <div class="row">
-                <div class="span1">
-                  <strong>Lab</strong>
-                </div>
-                <div class="span2">
-                  <?=$matches[3]?>
-                </div>
-              </div>
-              <div class="row">
-                <div class="span1">
-                  <strong>Product</strong>
-                </div>
-                <div class="span2">
-                  <?=$matches[4]?>
-                </div>
-              </div>
-              <div class="row">
-                <div class="span1">
-                  <strong>AppServer</strong>
-                </div>
-                <div class="span2">
-                  <?=$matches[5]?>
-                </div>
-              </div>
-              <div class="row">
-                <div class="span1">
-                  <strong>Scenario</strong>
-                </div>
-                <div class="span2">
-                  <?=$matches[6]?>
-                </div>
-              </div>
-              <div class="row">
-                <div class="span1">
-                  <strong>VUs</strong>
-                </div>
-                <div class="span2">
-                  <?=$matches[7]?>
-                </div>
-              </div>
-              <div class="row">
-                <div class="span1">
-                  <strong>Nodes</strong>
-                </div>
-                <div class="span2">
-                  <?=$matches[8]?>
-                </div>
-              </div>
-              <?php }?>
             </section>
             <section id="ResponseTimesOverTime">
               <div class="page-header">

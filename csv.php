@@ -17,7 +17,7 @@ header("Pragma: no-cache"); // HTTP/1.0
 /*
  End of No cache
 */
-function viewlog($filename) {
+function viewcsv($filename) {
   $fp = fopen($filename,"r");
   $file = ";" . fread($fp,65535);
   $replaced = eregi_replace(";", "<td>", $file);
@@ -53,7 +53,7 @@ function viewlog($filename) {
           <div class="span12">
             <h2><?=$file?></h2>
             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover">
-              <?=viewlog($filename)?>
+              <?=viewcsv($filename)?>
             </table>
           </div>
         </div>
