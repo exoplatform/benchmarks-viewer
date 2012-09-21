@@ -53,12 +53,13 @@ header("Pragma: no-cache"); // HTTP/1.0
           <div class="span9">
             <section id="Info">
               <div class="page-header">
-                <h2>Benchmark</h2>
+                <h2>Informations</h2>
               </div>
               <div class="row-fluid">
-                <div class="span6 well">
-                  <?php 
-                  function displayDate ($date_as_string) {
+                <div class="span6">
+                  <div class="well">
+                    <?php 
+                    function displayDate ($date_as_string) {
               	$date = DateTime::createFromFormat('Ymd-His', $date_as_string);
               	return $date->format('Y/M/d - H:i:s');
               }
@@ -66,67 +67,69 @@ header("Pragma: no-cache"); // HTTP/1.0
               if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
               {
               	?>
-                  <div class="row">
-                    <div class="span3">
-                      <strong>End Date (UTC)</strong>
+                    <div class="row">
+                      <div class="span3">
+                        <strong>End Date (UTC)</strong>
+                      </div>
+                      <div class="span9">
+                        <?=displayDate($matches[1]."-".$matches[2])?>
+                      </div>
                     </div>
-                    <div class="span9">
-                      <?=displayDate($matches[1]."-".$matches[2])?>
+                    <div class="row">
+                      <div class="span3">
+                        <strong>Lab</strong>
+                      </div>
+                      <div class="span9">
+                        <?=$matches[3]?>
+                      </div>
                     </div>
+                    <div class="row">
+                      <div class="span3">
+                        <strong>Product</strong>
+                      </div>
+                      <div class="span9">
+                        <?=$matches[4]?>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="span3">
+                        <strong>AppServer</strong>
+                      </div>
+                      <div class="span9">
+                        <?=$matches[5]?>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="span3">
+                        <strong>Scenario</strong>
+                      </div>
+                      <div class="span9">
+                        <?=$matches[6]?>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="span3">
+                        <strong>VUs</strong>
+                      </div>
+                      <div class="span9">
+                        <?=$matches[7]?>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="span3">
+                        <strong>Nodes</strong>
+                      </div>
+                      <div class="span9">
+                        <?=$matches[8]?>
+                      </div>
+                    </div>
+                    <?php }?>
                   </div>
-                  <div class="row">
-                    <div class="span3">
-                      <strong>Lab</strong>
-                    </div>
-                    <div class="span9">
-                      <?=$matches[3]?>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="span3">
-                      <strong>Product</strong>
-                    </div>
-                    <div class="span9">
-                      <?=$matches[4]?>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="span3">
-                      <strong>AppServer</strong>
-                    </div>
-                    <div class="span9">
-                      <?=$matches[5]?>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="span3">
-                      <strong>Scenario</strong>
-                    </div>
-                    <div class="span9">
-                      <?=$matches[6]?>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="span3">
-                      <strong>VUs</strong>
-                    </div>
-                    <div class="span9">
-                      <?=$matches[7]?>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="span3">
-                      <strong>Nodes</strong>
-                    </div>
-                    <div class="span9">
-                      <?=$matches[8]?>
-                    </div>
-                  </div>
-                  <?php }?>
                 </div>
-                <div class="span6 well">
-                <?php 
-                function viewinfo($filename) {
+                <div class="span6">
+                  <div class="well">
+                    <?php 
+                    function viewinfo($filename) {
                 	$fp = fopen($filename,"r");
                 	$file = fread($fp,65535);
                 	$replaced = eregi_replace(":", "</strong></div><div class='span6'>", $file);
@@ -134,9 +137,10 @@ header("Pragma: no-cache"); // HTTP/1.0
                 	$replaced3 = eregi_replace("\r", "</div></div><div class='row'><div class='span6'><strong>", $replaced2);
                 	fclose($fp);
                 	return substr("<div class='row'><div class='span6'><strong>".$replaced3,0,-44);
-                }                
+                }
                 ?>
-                <?=viewinfo($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.info.txt")?>
+                    <?=viewinfo($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.info.txt")?>
+                  </div>
                 </div>
               </div>
             </section>
