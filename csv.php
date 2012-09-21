@@ -51,9 +51,9 @@ function viewlog($filename) {
       <div class="container-fluid">
         <div class="row-fluid">
           <div class="span12">
-            <h2>$file</h2>
+            <h2><?=$file?></h2>
             <p>
-              <strong>Path : </strong>$filename
+              <strong>Path : </strong><?=$filename?>
             </p>
             <table>
               <?=viewlog($filename)?>
