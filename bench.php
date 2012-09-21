@@ -67,58 +67,58 @@ header("Pragma: no-cache"); // HTTP/1.0
               {
               	?>
                   <div class="row">
-                    <div class="span2">
+                    <div class="span3">
                       <strong>End Date (UTC)</strong>
                     </div>
-                    <div class="span4">
+                    <div class="span9">
                       <?=displayDate($matches[1]."-".$matches[2])?>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="span2">
+                    <div class="span3">
                       <strong>Lab</strong>
                     </div>
-                    <div class="span4">
+                    <div class="span9">
                       <?=$matches[3]?>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="span2">
+                    <div class="span3">
                       <strong>Product</strong>
                     </div>
-                    <div class="span4">
+                    <div class="span9">
                       <?=$matches[4]?>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="span2">
+                    <div class="span3">
                       <strong>AppServer</strong>
                     </div>
-                    <div class="span4">
+                    <div class="span9">
                       <?=$matches[5]?>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="span2">
+                    <div class="span3">
                       <strong>Scenario</strong>
                     </div>
-                    <div class="span4">
+                    <div class="span9">
                       <?=$matches[6]?>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="span2">
+                    <div class="span3">
                       <strong>VUs</strong>
                     </div>
-                    <div class="span4">
+                    <div class="span9">
                       <?=$matches[7]?>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="span2">
+                    <div class="span3">
                       <strong>Nodes</strong>
                     </div>
-                    <div class="span4">
+                    <div class="span9">
                       <?=$matches[8]?>
                     </div>
                   </div>
@@ -129,11 +129,11 @@ header("Pragma: no-cache"); // HTTP/1.0
                 function viewinfo($filename) {
                 	$fp = fopen($filename,"r");
                 	$file = fread($fp,65535);
-                	$replaced = eregi_replace(":", "</strong></div><div class='span4'>", $file);
-                	$replaced2 = eregi_replace("\n", "</div></div><div class='row'><div class='span2'><strong>", $replaced);
-                	$replaced3 = eregi_replace("\r", "</div></div><div class='row'><div class='span2'><strong>", $replaced2);
+                	$replaced = eregi_replace(":", "</strong></div><div class='span6'>", $file);
+                	$replaced2 = eregi_replace("\n", "</div></div><div class='row'><div class='span6'><strong>", $replaced);
+                	$replaced3 = eregi_replace("\r", "</div></div><div class='row'><div class='span6'><strong>", $replaced2);
                 	fclose($fp);
-                	return substr("<div class='row'><div class='span2'><strong>".$replaced3,0,-44);
+                	return substr("<div class='row'><div class='span6'><strong>".$replaced3,0,-44);
                 }                
                 ?>
                 <?=viewinfo($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.info.txt")?>
