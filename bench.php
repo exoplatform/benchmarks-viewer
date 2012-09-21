@@ -58,42 +58,52 @@ header("Pragma: no-cache"); // HTTP/1.0
               <?php 
               function displayDate ($date_as_string) {
               	$date = DateTime::createFromFormat('Ymd-His', $date_as_string);
-              	return $date->format('Y/M/d - H:i:s T');
-              }              
+              	return $date->format('Y/M/d - H:i:s');
+              }
               $matches = array();
               if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
               {
               	?>
-              <table>
-                <tr>
-                  <th>End Date (UTC)</th>
-                  <td><?=displayDate($matches[1]."-".$matches[2])?></td>
-                </tr>
-                <tr>
-                  <th>Lab</th>
-                  <td><?=$matches[3]?></td>
-                </tr>
-                <tr>
-                  <th>Product</th>
-                  <td><?=$matches[4]?></td>
-                </tr>
-                <tr>
-                  <th>AppServer</th>
-                  <td><?=$matches[5]?></td>
-                </tr>
-                <tr>
-                  <th>Scenario</th>
-                  <td><?=$matches[6]?></td>
-                </tr>
-                <tr>
-                  <th>VUs</th>
-                  <td><?=$matches[7]?></td>
-                </tr>
-                <tr>
-                  <th>Nodes</th>
-                  <td><?=$matches[8]?></td>
-                </tr>
-              </table>
+              <div class="row-fluid wheel">
+                <div class="span6">End Date (UTC)</div>
+                <div class="span6">
+                  <?=displayDate($matches[1]."-".$matches[2])?>
+                </div>
+              </div>
+              <div class="row-fluid">
+                <div class="span6">Lab</div>
+                <div class="span6" <?=$matches[3]?>></div>
+              </div>
+              <div class="row-fluid">
+                <div class="span6">Product</div>
+                <div class="span6">
+                  <?=$matches[4]?>
+                </div>
+              </div>
+              <div class="row-fluid">
+                <div class="span6">AppServer</div>
+                <div class="span6">
+                  <?=$matches[5]?>
+                </div>
+              </div>
+              <div class="row-fluid">
+                <div class="span6">Scenario</div>
+                <div class="span6">
+                  <?=$matches[6]?>
+                </div>
+              </div>
+              <div class="row-fluid">
+                <div class="span6">VUs</div>
+                <div class="span6">
+                  <?=$matches[7]?>
+                </div>
+              </div>
+              <div class="row-fluid">
+                <div class="span6">Nodes</div>
+                <div class="span6">
+                  <?=$matches[8]?>
+                </div>
+              </div>
               <?php }?>
             </section>
             <section id="ResponseTimesOverTime">
