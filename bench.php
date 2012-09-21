@@ -65,41 +65,57 @@ header("Pragma: no-cache"); // HTTP/1.0
               {
               	?>
               <div class="row">
-                <div class="span2">End Date (UTC)</div>
+                <div class="span2">
+                  <strong>End Date (UTC)</strong>
+                </div>
                 <div class="span2">
                   <?=displayDate($matches[1]."-".$matches[2])?>
                 </div>
               </div>
               <div class="row">
-                <div class="span2">Lab</div>
-                <div class="span2" <?=$matches[3]?>></div>
+                <div class="span1">
+                  <strong>Lab</strong>
+                </div>
+                <div class="span2">
+                  <?=$matches[3]?>
+                </div>
               </div>
               <div class="row">
-                <div class="span2">Product</div>
+                <div class="span1">
+                  <strong>Product</strong>
+                </div>
                 <div class="span2">
                   <?=$matches[4]?>
                 </div>
               </div>
               <div class="row">
-                <div class="span2">AppServer</div>
+                <div class="span1">
+                  <strong>AppServer</strong>
+                </div>
                 <div class="span2">
                   <?=$matches[5]?>
                 </div>
               </div>
               <div class="row">
-                <div class="span2">Scenario</div>
+                <div class="span1">
+                  <strong>Scenario</strong>
+                </div>
                 <div class="span2">
                   <?=$matches[6]?>
                 </div>
               </div>
               <div class="row">
-                <div class="span2">VUs</div>
+                <div class="span1">
+                  <strong>VUs</strong>
+                </div>
                 <div class="span2">
                   <?=$matches[7]?>
                 </div>
               </div>
               <div class="row">
-                <div class="span2">Nodes</div>
+                <div class="span1">
+                  <strong>Nodes</strong>
+                </div>
                 <div class="span2">
                   <?=$matches[8]?>
                 </div>
