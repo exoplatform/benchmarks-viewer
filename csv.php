@@ -52,10 +52,7 @@ function viewlog($filename) {
         <div class="row-fluid">
           <div class="span12">
             <h2><?=$file?></h2>
-            <p>
-              <strong>Path : </strong><?=$filename?>
-            </p>
-            <table>
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
               <?=viewlog($filename)?>
             </table>
           </div>
