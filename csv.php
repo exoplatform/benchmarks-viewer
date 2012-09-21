@@ -51,6 +51,10 @@ function viewlog($filename) {
       <div class="container-fluid">
         <div class="row-fluid">
           <div class="span12">
+            <h2>$file</h2>
+            <p>
+              <strong>Path : </strong>$filename
+            </p>
             <table>
               <?=viewlog($filename)?>
             </table>
@@ -61,7 +65,7 @@ function viewlog($filename) {
     </div>
   </div>
   <!-- Footer ================================================== -->
-  <div id="footer">Copyright © 2000-2012. All rights Reserved, eXo Platform SAS.</div>
+  <div id="footer">Copyright Â© 2000-2012. All rights Reserved, eXo Platform SAS.</div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
   <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js" type="text/javascript"></script>
 </body>

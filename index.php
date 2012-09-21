@@ -266,6 +266,6 @@ header("Pragma: no-cache"); // HTTP/1.0
     </div>
   </div>
   <!-- Footer ================================================== -->
-  <div id="footer">Copyright © 2000-2012. All rights Reserved, eXo Platform SAS.</div>
+  <div id="footer">Copyright Â© 2000-2012. All rights Reserved, eXo Platform SAS.</div>
 </body>
 </html>
