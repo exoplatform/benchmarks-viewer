@@ -173,6 +173,15 @@ header("Pragma: no-cache"); // HTTP/1.0
               	fclose($fp);
               	return $replaced3;
               }
+              function viewcommacsv($filename) {
+              	$fp = fopen($filename,"r");
+              	$file = "," . fread($fp,65535);
+              	$replaced = eregi_replace(",", "<td>", $file);
+              	$replaced2 = eregi_replace("\n", "<tr><td>", $replaced);
+              	$replaced3 = eregi_replace("\r", "<tr><td>", $replaced2);
+              	fclose($fp);
+              	return $replaced3;
+              }
               ?>
               <div class="row-fluid">
                 <div class="span12">
@@ -186,11 +195,11 @@ header("Pragma: no-cache"); // HTTP/1.0
                 <div class="span12">
                   <h2>bench-AggregateReport_Aggregated.csv</h2>
                   <table class="table table-striped table-bordered table-hover">
-                    <?=viewcsv($benchmarksDirectory."/".$benchmark."/jmeter-results/bench-AggregateReport_Aggregated.csv")?>
+                    <?=viewcommacsv($benchmarksDirectory."/".$benchmark."/jmeter-results/bench-AggregateReport_Aggregated.csv")?>
                   </table>
                 </div>
               </div>
-              </section>
+            </section>
             <section id="ResponseTimesOverTime">
               <div class="page-header">
                 <h2>Response Times Over Time</h2>
