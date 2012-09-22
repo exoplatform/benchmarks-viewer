@@ -42,6 +42,8 @@ header("Pragma: no-cache"); // HTTP/1.0
           <div class="span3 left-sidebar">
             <ul class="nav nav-list left-sidenav" data-spy="affix" data-offset-top="0" id="left-sidenav">
               <li><a href="#Info"><i class="icon-chevron-right"></i> Informations </a></li>
+              <li><a href="#bench.csv"><i class="icon-chevron-right"></i> bench.csv </a></li>
+              <li><a href="#bench-AggregateReport_Aggregated.csv"><i class="icon-chevron-right"></i> bench-AggregateReport_Aggregated.csv </a></li>
               <li><a href="#ResponseTimesOverTime"><i class="icon-chevron-right"></i> Response Times Over Time </a></li>
               <li><a href="#ResponseTimesVsThreads"><i class="icon-chevron-right"></i> Response Times Vs Threads </a></li>
               <li><a href="#ThreadsStateOverTime"><i class="icon-chevron-right"></i> Threads State Over Time </a></li>
@@ -163,8 +165,9 @@ header("Pragma: no-cache"); // HTTP/1.0
                   <?=viewinfo($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.info.txt")?>
                 </div>
               </div>
-              <?php 
-              function viewcsv($filename) {
+            </section>
+            <?php 
+            function viewcsv($filename) {
               	$fp = fopen($filename,"r");
               	$file = ";" . fread($fp,65535);
               	$replaced = eregi_replace(";", "<td>", $file);
@@ -183,17 +186,24 @@ header("Pragma: no-cache"); // HTTP/1.0
               	return $replaced3;
               }
               ?>
+            <section id="bench.csv">
+              <div class="page-header">
+                <h2>bench.csv</h2>
+              </div>
               <div class="row-fluid">
                 <div class="span12">
-                  <h2>bench.csv</h2>
                   <table class="table table-striped table-bordered table-hover">
                     <?=viewcsv($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.csv")?>
                   </table>
                 </div>
               </div>
+            </section>
+            <section id="bench-AggregateReport_Aggregated.csv">
+              <div class="page-header">
+                <h2>bench-AggregateReport_Aggregated.csv</h2>
+              </div>
               <div class="row-fluid">
                 <div class="span12">
-                  <h2>bench-AggregateReport_Aggregated.csv</h2>
                   <table class="table table-striped table-bordered table-hover">
                     <?=viewcommacsv($benchmarksDirectory."/".$benchmark."/jmeter-results/bench-AggregateReport_Aggregated.csv")?>
                   </table>
