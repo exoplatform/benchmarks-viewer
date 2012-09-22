@@ -18,13 +18,13 @@ header("Pragma: no-cache"); // HTTP/1.0
  End of No cache
 */
 function viewcsv($filename) {
-  $fp = fopen($filename,"r");
-  $file = ";" . fread($fp,65535);
-  $replaced = eregi_replace(";", "<td>", $file);
-  $replaced2 = eregi_replace("\n", "<tr><td>", $replaced);
-  $replaced3 = eregi_replace("\r", "<tr><td>", $replaced2);
-  fclose($fp);
-  return $replaced3;
+	$fp = fopen($filename,"r");
+	$file = ";" . fread($fp,65535);
+	$replaced = eregi_replace(";", "<td>", $file);
+	$replaced2 = eregi_replace("\n", "<tr><td>", $replaced);
+	$replaced3 = eregi_replace("\r", "<tr><td>", $replaced2);
+	fclose($fp);
+	return $replaced3;
 }
 ?>
 <html>
@@ -51,8 +51,10 @@ function viewcsv($filename) {
       <div class="container-fluid">
         <div class="row-fluid">
           <div class="span12">
-            <h2><?=$file?></h2>
-            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover">
+            <h2>
+              <?=$file?>
+            </h2>
+            <table class="table table-striped table-bordered table-hover">
               <?=viewcsv($filename)?>
             </table>
           </div>

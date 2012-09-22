@@ -123,6 +123,30 @@ header("Pragma: no-cache"); // HTTP/1.0
                     </div>
                   </div>
                   <?php }?>
+                  <div class="row">
+                    <div class="span3">
+                      <strong>JTL</strong>
+                    </div>
+                    <div class="span6">
+                      <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench.jtl.gz"><i class="icon-chevron-right"></i> Download</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="span3">
+                      <strong>Logs</strong>
+                    </div>
+                    <div class="span6">
+                      <a href="<?=$benchmarksURL."/".$benchmark?>/logs/"><i class="icon-chevron-right"></i> Browse</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="span3">
+                      <strong>Configuration</strong>
+                    </div>
+                    <div class="span6">
+                      <a href="<?=$benchmarksURL."/".$benchmark?>/conf/"><i class="icon-chevron-right"></i> Browse</a>
+                    </div>
+                  </div>
                 </div>
                 <div class="span6">
                   <?php 
@@ -153,12 +177,20 @@ header("Pragma: no-cache"); // HTTP/1.0
               <div class="row-fluid">
                 <div class="span12">
                   <h2>bench.csv</h2>
-                  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover">
+                  <table class="table table-striped table-bordered table-hover">
                     <?=viewcsv($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.csv")?>
                   </table>
                 </div>
               </div>
-            </section>
+              <div class="row-fluid">
+                <div class="span12">
+                  <h2>bench-AggregateReport_Aggregated.csv</h2>
+                  <table class="table table-striped table-bordered table-hover">
+                    <?=viewcsv($benchmarksDirectory."/".$benchmark."/jmeter-results/bench-AggregateReport_Aggregated.csv")?>
+                  </table>
+                </div>
+              </div>
+              </section>
             <section id="ResponseTimesOverTime">
               <div class="page-header">
                 <h2>Response Times Over Time</h2>
@@ -223,7 +255,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                     </li>
                   </ul>
                 </div>
-            
+              </div>
             </section>
             <section id="ThreadsStateOverTime">
               <div class="page-header">
