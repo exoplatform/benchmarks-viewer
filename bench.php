@@ -68,84 +68,84 @@ header("Pragma: no-cache"); // HTTP/1.0
               if(preg_match("/([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-([^\-]*)\-(.*.jmx)\-([^\-]*)\-([^\-]*)/", $benchmark, $matches))
               {
               	?>
-                  <div class="row">
-                    <div class="span3">
+                  <div class="row-fluid">
+                    <div class="span4">
                       <strong>End Date (UTC)</strong>
                     </div>
-                    <div class="span6">
+                    <div class="span8">
                       <?=displayDate($matches[1]."-".$matches[2])?>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="span3">
+                  <div class="row-fluid">
+                    <div class="span4">
                       <strong>Lab</strong>
                     </div>
-                    <div class="span6">
+                    <div class="span8">
                       <?=$matches[3]?>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="span3">
+                  <div class="row-fluid">
+                    <div class="span4">
                       <strong>Product</strong>
                     </div>
-                    <div class="span6">
+                    <div class="span8">
                       <?=$matches[4]?>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="span3">
+                  <div class="row-fluid">
+                    <div class="span4">
                       <strong>AppServer</strong>
                     </div>
-                    <div class="span6">
+                    <div class="span8">
                       <?=$matches[5]?>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="span3">
+                  <div class="row-fluid">
+                    <div class="span4">
                       <strong>Scenario</strong>
                     </div>
-                    <div class="span6">
+                    <div class="span8">
                       <?=$matches[6]?>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="span3">
+                  <div class="row-fluid">
+                    <div class="span4">
                       <strong>VUs</strong>
                     </div>
-                    <div class="span6">
+                    <div class="span8">
                       <?=$matches[7]?>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="span3">
+                  <div class="row-fluid">
+                    <div class="span4">
                       <strong>Nodes</strong>
                     </div>
-                    <div class="span6">
+                    <div class="span8">
                       <?=$matches[8]?>
                     </div>
                   </div>
                   <?php }?>
-                  <div class="row">
-                    <div class="span3">
+                  <div class="row-fluid">
+                    <div class="span4">
                       <strong>JTL</strong>
                     </div>
-                    <div class="span6">
+                    <div class="span8">
                       <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench.jtl.gz"><i class="icon-chevron-right"></i> Download</a>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="span3">
+                  <div class="row-fluid">
+                    <div class="span4">
                       <strong>Logs</strong>
                     </div>
-                    <div class="span6">
+                    <div class="span8">
                       <a href="<?=$benchmarksURL."/".$benchmark?>/logs/"><i class="icon-chevron-right"></i> Browse</a>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="span3">
+                  <div class="row-fluid">
+                    <div class="span4">
                       <strong>Configuration</strong>
                     </div>
-                    <div class="span6">
+                    <div class="span8">
                       <a href="<?=$benchmarksURL."/".$benchmark?>/conf/"><i class="icon-chevron-right"></i> Browse</a>
                     </div>
                   </div>
@@ -155,19 +155,19 @@ header("Pragma: no-cache"); // HTTP/1.0
                   function viewinfo($filename) {
                 	$fp = fopen($filename,"r");
                 	$file = fread($fp,65535);
-                	$replaced = eregi_replace(":", "</strong></div><div class='span3'>", $file);
-                	$replaced2 = eregi_replace("\n", "</div></div><div class='row'><div class='span6'><strong>", $replaced);
-                	$replaced3 = eregi_replace("\r", "</div></div><div class='row'><div class='span6'><strong>", $replaced2);
+                	$replaced = eregi_replace(":", "</strong></div><div class='span8'>", $file);
+                	$replaced2 = eregi_replace("\n", "</div></div><div class='row-fluid'><div class='span4'><strong>", $replaced);
+                	$replaced3 = eregi_replace("\r", "</div></div><div class='row-fluid'><div class='span4'><strong>", $replaced2);
                 	fclose($fp);
-                	return substr("<div class='row'><div class='span6'><strong>".$replaced3,0,-44);
+                	return substr("<div class='row-fluid'><div class='span4'><strong>".$replaced3,0,-44);
                 }
                 ?>
                   <?=viewinfo($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.info.txt")?>
-                  <div class="row">
-                    <div class="span6">
+                  <div class="row-fluid">
+                    <div class="span4">
                       <strong>Info file</strong>
                     </div>
-                    <div class="span3">
+                    <div class="span8">
                       <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench.jtl.info.txt"><i class="icon-chevron-right"></i> Download</a>
                     </div>
                   </div>
