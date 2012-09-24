@@ -17,14 +17,14 @@ header("Pragma: no-cache"); // HTTP/1.0
 /*
  End of No cache
 */
-function viewcsv($filename) {
-	$fp = fopen($filename,"r");
-	$file = ";" . fread($fp,65535);
-	$replaced = eregi_replace(";", "<td>", $file);
-	$replaced2 = eregi_replace("\n", "<tr><td>", $replaced);
-	$replaced3 = eregi_replace("\r", "<tr><td>", $replaced2);
-	fclose($fp);
-	return $replaced3;
+function viewsemicoloncsv($filename) {
+  $fp = fopen($filename,"r");
+  $file = ";" . fread($fp,65535);
+  $replaced = eregi_replace(";", "</td><td>", $file);
+  $replaced2 = eregi_replace("\n", "</td></tr><tr><td>", $replaced);
+  $replaced3 = eregi_replace("\r", "</td></tr><tr><td>", $replaced2);
+  fclose($fp);
+  return substr("<tr><td>".$replaced3,0,-8);
 }
 ?>
 <html>
@@ -55,7 +55,7 @@ function viewcsv($filename) {
               <?=$file?>
             </h2>
             <table class="table table-striped table-bordered table-hover">
-              <?=viewcsv($filename)?>
+              <?=viewsemicoloncsv($filename)?>
             </table>
           </div>
         </div>

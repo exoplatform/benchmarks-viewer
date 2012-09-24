@@ -59,7 +59,7 @@ header("Pragma: no-cache"); // HTTP/1.0
               </div>
               <div class="row-fluid">
                 <div class="span6">
-                  <?php 
+                  <?php
                   function displayDate ($date_as_string) {
               	$date = DateTime::createFromFormat('Ymd-His', $date_as_string);
               	return $date->format('Y/M/d - H:i:s');
@@ -151,7 +151,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                   </div>
                 </div>
                 <div class="span6">
-                  <?php 
+                  <?php
                   function viewinfo($filename) {
                 	$fp = fopen($filename,"r");
                 	$file = fread($fp,65535);
@@ -166,24 +166,24 @@ header("Pragma: no-cache"); // HTTP/1.0
                 </div>
               </div>
             </section>
-            <?php 
-            function viewcsv($filename) {
+            <?php
+            function viewsemicoloncsv($filename) {
               	$fp = fopen($filename,"r");
               	$file = ";" . fread($fp,65535);
-              	$replaced = eregi_replace(";", "<td>", $file);
-              	$replaced2 = eregi_replace("\n", "<tr><td>", $replaced);
-              	$replaced3 = eregi_replace("\r", "<tr><td>", $replaced2);
+              	$replaced = eregi_replace(";", "</td><td>", $file);
+              	$replaced2 = eregi_replace("\n", "</td></tr><tr><td>", $replaced);
+              	$replaced3 = eregi_replace("\r", "</td></tr><tr><td>", $replaced2);
               	fclose($fp);
-              	return $replaced3;
+              	return substr("<tr><td>".$replaced3,0,-8);
               }
               function viewcommacsv($filename) {
               	$fp = fopen($filename,"r");
               	$file = "," . fread($fp,65535);
-              	$replaced = eregi_replace(",", "<td>", $file);
-              	$replaced2 = eregi_replace("\n", "<tr><td>", $replaced);
-              	$replaced3 = eregi_replace("\r", "<tr><td>", $replaced2);
+              	$replaced = eregi_replace(",", "</td><td>", $file);
+              	$replaced2 = eregi_replace("\n", "</td></tr><tr><td>", $replaced);
+              	$replaced3 = eregi_replace("\r", "</td></tr><tr><td>", $replaced2);
               	fclose($fp);
-              	return $replaced3;
+              	return substr("<tr><td>".$replaced3,0,-8);
               }
               ?>
             <section id="bench.csv">
@@ -193,7 +193,7 @@ header("Pragma: no-cache"); // HTTP/1.0
               <div class="row-fluid">
                 <div class="span12">
                   <table class="table table-striped table-bordered table-hover">
-                    <?=viewcsv($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.csv")?>
+                    <?=viewsemicoloncsv($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.csv")?>
                   </table>
                 </div>
               </div>
