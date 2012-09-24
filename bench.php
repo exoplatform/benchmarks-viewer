@@ -163,6 +163,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                 }
                 ?>
                   <?=viewinfo($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.info.txt")?>
+                  <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench.jtl.info.txt"><i class="icon-chevron-right"></i> Download</a>
                 </div>
               </div>
             </section>
@@ -195,6 +196,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                   <table class="table table-striped table-bordered table-hover">
                     <?=viewsemicoloncsv($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.csv")?>
                   </table>
+                  <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench.jtl.csv"><i class="icon-chevron-right"></i> Download</a>
                 </div>
               </div>
             </section>
@@ -207,6 +209,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                   <table class="table table-striped table-bordered table-hover">
                     <?=viewcommacsv($benchmarksDirectory."/".$benchmark."/jmeter-results/bench-AggregateReport_Aggregated.csv")?>
                   </table>
+                  <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench-AggregateReport_Aggregated.csv"><i class="icon-chevron-right"></i> Download</a>
                 </div>
               </div>
             </section>
