@@ -140,16 +140,6 @@ section>ul li {
 	opacity: 1;
 }
 
-.left-sidenav.affix {
-	top: 40px;
-}
-
-.left-sidenav.affix-bottom {
-	position: absolute;
-	top: auto;
-	bottom: 270px;
-}
-
 /*
  * DataTables style compat with bootstrap
  */
