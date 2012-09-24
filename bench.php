@@ -164,10 +164,10 @@ header("Pragma: no-cache"); // HTTP/1.0
                 ?>
                   <?=viewinfo($benchmarksDirectory."/".$benchmark."/jmeter-results/bench.jtl.info.txt")?>
                   <div class="row">
-                    <div class="span3">
+                    <div class="span6">
                       <strong>Info file</strong>
                     </div>
-                    <div class="span6">
+                    <div class="span3">
                       <a href="<?=$benchmarksURL."/".$benchmark?>/jmeter-results/bench.jtl.info.txt"><i class="icon-chevron-right"></i> Download</a>
                     </div>
                   </div>
