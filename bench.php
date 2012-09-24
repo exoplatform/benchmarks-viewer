@@ -175,7 +175,7 @@ header("Pragma: no-cache"); // HTTP/1.0
               	$replaced2 = eregi_replace("\n", "</td></tr><tr><td>", $replaced);
               	$replaced3 = eregi_replace("\r", "</td></tr><tr><td>", $replaced2);
               	fclose($fp);
-              	return substr("<tr><td>".$replaced3,0,-8);
+              	return substr("<tr>".$replaced3,5,-8);
               }
               function viewcommacsv($filename) {
               	$fp = fopen($filename,"r");
@@ -184,7 +184,7 @@ header("Pragma: no-cache"); // HTTP/1.0
               	$replaced2 = eregi_replace("\n", "</td></tr><tr><td>", $replaced);
               	$replaced3 = eregi_replace("\r", "</td></tr><tr><td>", $replaced2);
               	fclose($fp);
-              	return substr("<tr><td>".$replaced3,0,-8);
+              	return substr("<tr>".$replaced3,5,-8);
               }
               ?>
             <section id="bench.csv">
