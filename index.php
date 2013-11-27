@@ -206,7 +206,7 @@ header("Pragma: no-cache"); // HTTP/1.0
                     }
                     function displayDate ($date_as_string) {
                       $date = DateTime::createFromFormat('Ymd-His', $date_as_string);
-                      return $date->format('Y/M/d - H:i:s');
+                      return $date->format('Y/m/d - H:i:s');
                     }
                     //print each file name
                     $benchmarks = getDirectoryList($benchmarksDirectory);
